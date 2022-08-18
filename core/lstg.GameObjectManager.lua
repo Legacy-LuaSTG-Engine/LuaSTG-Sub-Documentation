@@ -269,6 +269,28 @@ end
 --------------------------------------------------------------------------------
 --- 游戏对象world掩码（高级功能）
 
+--- 关于多 world 掩码对碰撞检测的影响
+--- 假如设置了如下的 4 个 world 掩码
+---   * Mask1: 0x01 (0001)
+---   * Mask2: 0x02 (0010)
+---   * Mask3: 0x04 (0100)
+---   * Mask4: 0x07 (0111)
+--- 现在有 3 个游戏对象，它们的 world 掩码分别为
+---   * ObjectA: 0x01 (0001)
+---   * ObjectB: 0x02 (0010)
+---   * ObjectC: 0x07 (0111)
+--- 那么调用 CollisionCheck 进行碰撞检测时
+---   * ObjectA 和 ObjectB 之间不会进行碰撞检测
+---   * ObjectA 和 ObjectC 之间以及 ObjectB 和 ObjectC 之间会进行碰撞检测
+--- 判断方式相当于调用 IsSameWorld
+
+--- 调用 SetWorldFlag 设置当前 world 掩码会影响以下的功能
+--- 当游戏对象的 world 掩码与当前 world 掩码匹配时，才会
+---   * DoRender: 渲染游戏对象
+---   * BoundCheck: 进行出界检测
+---   * DrawGroupCollider: 绘制游戏对象的碰撞体
+--- 判断方式相当于调用 IsInWorld
+
 --- 设置当前激活的world掩码
 ---@param mask number
 function lstg.SetWorldFlag(mask)
@@ -279,11 +301,18 @@ end
 function lstg.GetWorldFlag()
 end
 
---- 判断两个对象是否在同一个 world 内，当两个游戏对象的 world 掩码相同或者按位与不为 0 时返回 true
----@param unitA lstg.GameObject
----@param unitB lstg.GameObject
+--- 检查两个 world 掩码是否存在交叠的部分
+---@param maskA number
+---@param maskB number
 ---@return boolean
-function lstg.IsSameWorld(unitA, unitB)
+function lstg.IsInWorld(maskA, maskB)
+end
+
+--- 根据 ActiveWorlds 设置的多 world 掩码，判断两个对象是否在同一个 world 内
+---@param maskA number
+---@param maskB number
+---@return boolean
+function lstg.IsSameWorld(maskA, maskB)
 end
 
 --- 设置多 world 的掩码，最多可支持 4 个不同的掩码，将会在进行碰撞检测的时候用到
@@ -292,11 +321,4 @@ end
 ---@param maskC number
 ---@param maskD number
 function lstg.ActiveWorlds(maskA, maskB, maskC, maskD)
-end
-
---- 检查两个对象是否存在于相同的 world 内，参考ActiveWorlds
----@param unitA lstg.GameObject
----@param unitB lstg.GameObject
----@return boolean
-function lstg.CheckWorlds(unitA, unitB)
 end
