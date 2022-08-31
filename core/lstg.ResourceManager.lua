@@ -4,6 +4,19 @@
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
+--- 迁移指南
+
+-- 关于 lstg.SetTextureSamplerState：
+-- 在之前的 LuaSTG 版本中，也存在 lstg.SetTextureSamplerState 方法，
+-- 但是并未公开，且参数不一样，行为不一样，影响范围也不一样。
+-- 旧 API 设置的采样器是全局的状态，修改后必须手动还原。
+-- 旧 API 的函数签名为 lstg.SetTextureSamplerState(state:string, mode:string)
+-- 参数组合为 state = "address", mode = "wrap" | "clamp"
+-- 或 state = "filter", mode = "point" | "linear"
+-- 旧 API 的行为已被移除，强烈建议替换为新行为。
+-- 新的行为更加容易理解，将采样器与纹理绑定，这也是其他游戏引擎的设计方式
+
+--------------------------------------------------------------------------------
 --- 资源池管理
 
 ---@alias lstg.ResourcePoolType '"none"' | '"global"' | '"stage"'
@@ -161,6 +174,22 @@ end
 --- 截取程序画面，保存的文件格式为 JPEG
 ---@param saveto string
 function lstg.Snapshot(saveto)
+end
+
+---@alias lstg.KnownSamplerState '""' | '"point+wrap"' | '"point+clamp"' | '"linear+wrap"' | '"linear+clamp"'
+
+--- [LuaSTG Sub v0.18.5 新增]  
+--- 设置纹理使用的采样器  
+--- 当参数 known_sampler_state 为 "" 时，纹理使用 LuaSTG 默认的采样器  
+--- LuaSTG 默认情况下使用 "linear+clamp"  
+--- [LuaSTG Sub v0.18.5 Add]  
+--- Set the sampler used by the texture  
+--- When the parameter known_sampler_state is "",  
+--- the texture uses the LuaSTG default sampler  
+--- LuaSTG uses "linear+clamp" by default  
+---@param texture_name string
+---@param known_sampler_state lstg.KnownSamplerState
+function lstg.SetTextureSamplerState(texture_name, known_sampler_state)
 end
 
 --------------------------------------------------------------------------------
