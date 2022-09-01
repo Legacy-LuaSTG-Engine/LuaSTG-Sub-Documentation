@@ -158,6 +158,20 @@ end
 function TextLayout:SetFontStretch(font_stretch, start_position, length)
 end
 
+-- extend format
+
+---@param enable boolean
+---@param start_position number
+---@param length number
+function TextLayout:SetStrikethrough(enable, start_position, length)
+end
+
+---@param enable boolean
+---@param start_position number
+---@param length number
+function TextLayout:SetUnderline(enable, start_position, length)
+end
+
 -- block format
 
 ---@param value number
