@@ -160,8 +160,8 @@ FlowDirection.RightToLeft = 3
 ---@class DirectWrite.ReadingDirection
 local ReadingDirection = {}
 M.ReadingDirection = ReadingDirection
-ReadingDirection.TopToBottom = 0
-ReadingDirection.BottomToTop = 1
+ReadingDirection.LeftToRight = 0
+ReadingDirection.RightToLeft = 1
 
 ---@class DirectWrite.WordWrapping
 local WordWrapping = {}
