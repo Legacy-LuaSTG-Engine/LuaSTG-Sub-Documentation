@@ -7,6 +7,83 @@
 local M = {}
 
 --------------------------------------------------------------------------------
+--- example
+
+local function example()
+    --- step 0: cimport module
+
+    ---@type DirectWrite
+    local DirectWrite = require("DirectWrite")
+
+    --- step 1: create a font collection
+
+    -- let's begin with Windows built-in font 微软雅黑
+    local font_file_list = {}
+    ---@param path string
+    local function insert_if_exist(path)
+        if lstg.FileManager.FileExist(path) then
+            table.insert(font_file_list, path)
+        end
+    end
+    -- Windows 8, 8.1, 10, 11
+    insert_if_exist("C:/Windows/Fonts/msyh.ttc")
+    insert_if_exist("C:/Windows/Fonts/msyhbd.ttc")
+    insert_if_exist("C:/Windows/Fonts/msyhl.ttc")
+    -- Windows 7 special case (fallback)
+    if #font_file_list < 1 then
+        insert_if_exist("C:/Windows/Fonts/msyh.ttf")
+        insert_if_exist("C:/Windows/Fonts/msyhbd.ttf")
+    end
+    local font_collection = DirectWrite.CreateFontCollection(font_file_list)
+    -- optional debug information
+    lstg.Print(string.format("Font Collection Detail:\n%s", font_collection:GetDebugInformation()))
+
+    --- step 2: create a text format
+
+    local text_format = DirectWrite.CreateTextFormat(
+        "微软雅黑", -- font family name (see DirectWrite.FontCollection:GetDebugInformation result)
+        font_collection,
+        DirectWrite.FontWeight.Regular,
+        DirectWrite.FontStyle.Normal,
+        DirectWrite.FontStretch.Normal,
+        16.0, -- font size in DIP (device independent point, or pixel)
+        ""
+    )
+
+    --- step 3: create a text layout
+
+    local text_layout_1 = DirectWrite.CreateTextLayout(
+        "Hello, DirectWrite!\n你好，DirectWrite！",
+        text_format,
+        256, -- layout box width
+        64 -- layout box height
+    )
+
+    local text_layout_2 = DirectWrite.CreateTextLayout(
+        "海内存知己，天涯若比邻。",
+        text_format,
+        256, -- layout box width
+        64 -- layout box height
+    )
+
+    --- step 4: create LuaSTG texture resource from text layout
+
+    DirectWrite.CreateTextureFromTextLayout(
+        text_layout_1,
+        "global", -- resource pool type
+        "tex:hello-dwrite" -- texture resource name
+    )
+
+    DirectWrite.CreateTextureFromTextLayout(
+        text_layout_2,
+        "global", -- resource pool type
+        "tex:hello-dwrite", -- texture resource name
+        4 -- optional stroke width
+    )
+end
+
+--------------------------------------------------------------------------------
+--- C enum
 
 ---@class DirectWrite.FontStretch
 local FontStretch = {}
@@ -93,6 +170,7 @@ WordWrapping.Wrap = 0
 WordWrapping.NoWrap = 1
 
 --------------------------------------------------------------------------------
+--- IDWriteFontCollection
 
 ---@class DirectWrite.FontCollection
 local FontCollection = {}
@@ -102,11 +180,13 @@ function FontCollection:GetDebugInformation()
 end
 
 --------------------------------------------------------------------------------
+--- IDWriteTextFormat
 
 ---@class DirectWrite.TextFormat
 local TextFormat = {}
 
 --------------------------------------------------------------------------------
+--- IDWriteTextLayout
 
 ---@class DirectWrite.TextLayout
 local TextLayout = {}
@@ -227,6 +307,7 @@ function TextLayout:DetermineMinWidth()
 end
 
 --------------------------------------------------------------------------------
+--- IDwriteFactory
 
 ---@param font_files string[]
 ---@return DirectWrite.FontCollection
@@ -255,6 +336,9 @@ end
 function M.CreateTextLayout(text, text_format, max_width, max_height)
 end
 
+--------------------------------------------------------------------------------
+--- DirectWrite & LuaSTG
+
 ---@param text_layout DirectWrite.TextLayout
 ---@param resource_pool_type lstg.ResourcePoolType
 ---@param texture_name string
@@ -262,5 +346,8 @@ end
 ---@overload fun(text_layout:DirectWrite.TextLayout, resource_pool_type:lstg.ResourcePoolType, texture_name:string)
 function M.CreateTextureFromTextLayout(text_layout, resource_pool_type, texture_name, outline_width)
 end
+
+--------------------------------------------------------------------------------
+--- end
 
 return M
