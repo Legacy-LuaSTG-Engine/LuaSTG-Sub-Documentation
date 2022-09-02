@@ -348,6 +348,17 @@ function M.CreateTextureFromTextLayout(text_layout, resource_pool_type, texture_
 end
 
 --------------------------------------------------------------------------------
+--- DirectWrite & Windows Imaging Component
+
+--- save TextLayout to png file
+---@param text_layout DirectWrite.TextLayout
+---@param file_path string
+---@param outline_width number
+---@overload fun(text_layout:DirectWrite.TextLayout, file_path:string)
+function M.SaveTextLayoutToFile(text_layout, file_path, outline_width)
+end
+
+--------------------------------------------------------------------------------
 --- end
 
 return M
