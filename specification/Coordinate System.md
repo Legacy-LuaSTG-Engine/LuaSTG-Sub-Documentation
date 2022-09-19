@@ -17,6 +17,8 @@ Related API
 
 The origin of the normalized UV coordinate system of the texture is located in the upper left corner of the texture, the U-axis is positive to the right, and the V-axis is down. This is also the texture coordinate system used by various graphics APIs (OpenGL, Direct3D, Metal, Vulkan, etc.).
 
+![](images/coord_system_texture.png)
+
 Related Content
 * Post-processing effect shader (HLSL)
 
@@ -87,6 +89,8 @@ LuaSTG 的窗口坐标系的原点位于窗口客户区的左下角，X 轴向�
 ## 纹理的归一化 UV 坐标系
 
 纹理的归一化 UV 坐标系原点位于纹理左上角，U 轴向右为正方向，V 轴向下为正方向。这也是各种图形 API 使用的纹理坐标系（OpenGL、Direct3D、Metal、Vulkan 等）。
+
+![](images/coord_system_texture.png)
 
 相关内容
 * 后处理特效着色器（HLSL）
