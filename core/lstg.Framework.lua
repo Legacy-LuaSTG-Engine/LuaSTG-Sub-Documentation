@@ -30,7 +30,7 @@ end
 --- 获取引擎版本友好名称，例如：LuaSTG Sub v0.10.0-beta  
 --- [LuaSTG Sub v0.15.6 Add]  
 --- Get the engine version friendly name, for example: LuaSTG Sub v0.10.0-beta  
----@return number, number, number
+---@return string
 function lstg.GetVersionName()
 end
 
