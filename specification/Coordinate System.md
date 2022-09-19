@@ -40,6 +40,7 @@ Related API
 * lstg.GetTextureSize
 * lstg.LoadImage
 * lstg.LoadAnimation
+* lstg.CurveLaser:Render
 
 ## Renderer's Custom 2D/3D Coordinate System
 
@@ -110,6 +111,7 @@ LuaSTG 的渲染器为了方便使用，将一部分 API 的纹理 UV 坐标系�
 * lstg.GetTextureSize
 * lstg.LoadImage
 * lstg.LoadAnimation
+* lstg.CurveLaser:Render
 
 ## 渲染器的自定义 2D/3D 坐标系
 
