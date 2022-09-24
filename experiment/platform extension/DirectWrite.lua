@@ -71,13 +71,13 @@ local function example()
     DirectWrite.CreateTextureFromTextLayout(
         text_layout_1,
         "global", -- resource pool type
-        "tex:hello-dwrite" -- texture resource name
+        "tex:hello-dwrite-1" -- texture resource name
     )
 
     DirectWrite.CreateTextureFromTextLayout(
         text_layout_2,
         "global", -- resource pool type
-        "tex:hello-dwrite", -- texture resource name
+        "tex:hello-dwrite-2", -- texture resource name
         4 -- optional stroke width
     )
 end
