@@ -71,16 +71,13 @@ end
 function lstg.SetVsync(Vsync)
 end
 
---- [LuaSTG Sub v0.11.0 更改]
---- 初始化方法，仅在 launch 文件内生效，运行时调用该方法将会触发警告消息
---- 设置游戏窗口分辨率
---- 默认设置为 640x480
+--- [LuaSTG Sub v0.11.0 更改]  
+--- 初始化方法，仅在 launch 文件内生效，运行时调用该方法将会触发警告消息  
+--- 设置游戏窗口分辨率  
+--- 默认设置为 640x480  
 ---@param width number
 ---@param height number
----@param refresh_rate_numerator number
----@param refresh_rate_denominator number
----@overload fun(width:number, height:number)
-function lstg.SetResolution(width, height, refresh_rate_numerator, refresh_rate_denominator)
+function lstg.SetResolution(width, height)
 end
 
 --- [LuaSTG Sub v0.11.0 新增]
