@@ -3,6 +3,8 @@
 --- 璀境石
 --------------------------------------------------------------------------------
 
+---@diagnostic disable: missing-return
+
 --------------------------------------------------------------------------------
 --- 迁移指南
 
@@ -66,11 +68,11 @@ end
 --------------------------------------------------------------------------------
 --- 渲染管线
 
---- 设置雾（这 API 谁他妈设计的）
---- 不传递参数时关闭雾功能
---- 当 near 和 far 不小于 0 且 near 小于 far 时，为线性雾
---- 当 near 为 -1.0 时，为指数雾，far 表示雾密度
---- 当 near 为 -2.0 时，为二次指数雾，far 表示雾密度
+--- 设置雾（这 API 谁他妈设计的）  
+--- 不传递参数时关闭雾功能  
+--- 当 near 和 far 不小于 0 且 near 小于 far 时，为线性雾  
+--- 当 near 为 -1.0 时，为指数雾，far 表示雾密度  
+--- 当 near 为 -2.0 时，为二次指数雾，far 表示雾密度  
 ---@param near number
 ---@param far number
 ---@param color lstg.Color
@@ -174,7 +176,7 @@ end
 ---@param z number
 ---@overload fun(imgname:string, x:number, y:number)
 ---@overload fun(imgname:string, x:number, y:number, rot:number)
----@overload fun(imgname:string, x:number, y:number, rot:number, hscale:number)
+---@overload fun(imgname:string, x:number, y:number, rot:number, scale:number)
 ---@overload fun(imgname:string, x:number, y:number, rot:number, hscale:number, vscale:number)
 function lstg.Render(imgname, x, y, rot, hscale, vscale, z)
 end
@@ -192,7 +194,7 @@ end
 ---@param z number
 ---@overload fun(aniname:string, anitimer:number, x:number, y:number)
 ---@overload fun(aniname:string, anitimer:number, x:number, y:number, rot:number)
----@overload fun(aniname:string, anitimer:number, x:number, y:number, rot:number, hscale:number)
+---@overload fun(aniname:string, anitimer:number, x:number, y:number, rot:number, scale:number)
 ---@overload fun(aniname:string, anitimer:number, x:number, y:number, rot:number, hscale:number, vscale:number)
 function lstg.RenderAnimation(aniname, anitimer, x, y, rot, hscale, vscale, z)
 end
@@ -214,9 +216,9 @@ end
 function lstg.Render4V(imgname, x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4)
 end
 
---- 指定 4 个顶点绘制纹理
---- 每个顶点的结构为 { x:number, y:number, z:number, u:number, v:number, color:lstg.Color }
---- uv 坐标以图片左上角为原点，u 轴向右，v 轴向下，单位为像素（不是 0.0 到 1.0）
+--- 指定 4 个顶点绘制纹理  
+--- 每个顶点的结构为 { x:number, y:number, z:number, u:number, v:number, color:lstg.Color }  
+--- uv 坐标以图片左上角为原点，u 轴向右，v 轴向下，单位为像素（不是 0.0 到 1.0）  
 ---@param texname string
 ---@param blendmode lstg.BlendMode
 ---@param v1 number[]

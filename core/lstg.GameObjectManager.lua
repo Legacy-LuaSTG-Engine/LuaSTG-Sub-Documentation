@@ -3,6 +3,8 @@
 --- 璀境石
 --------------------------------------------------------------------------------
 
+---@diagnostic disable: missing-return
+
 --------------------------------------------------------------------------------
 --- 游戏对象管理器
 
@@ -40,8 +42,9 @@ end
 function lstg.SetBound(left, right, bottom, top)
 end
 
----【禁止在协同程序中调用此方法】
----对两个碰撞组的对象进行碰撞检测，如果发生碰撞则触发groupidA内的对象的colli回调函数，并传入groupidB内的对象作为参数
+---【禁止在协同程序中调用此方法】  
+--- 对两个碰撞组的对象进行碰撞检测  
+--- 如果发生碰撞则触发groupidA内的对象的colli回调函数，并传入groupidB内的对象作为参数
 ---@param groupidA number @只能为0到15范围内的整数
 ---@param groupidB number @只能为0到15范围内的整数
 function lstg.CollisionCheck(groupidA, groupidB)
@@ -65,9 +68,6 @@ end
 ---@vararg any
 ---@return lstg.GameObject
 function lstg.New(class, ...)
-	---@type lstg.GameObject
-	local ret = {}
-	return ret
 end
 
 --- 触发指定游戏对象的del回调函数，并将该对象标记为del状态，剩余参数将传递给del回调函数
@@ -87,7 +87,6 @@ end
 ---@param unit any
 ---@return boolean
 function lstg.IsValid(unit)
-	return false
 end
 
 --------------------------------------------------------------------------------
@@ -101,7 +100,6 @@ end
 ---@param top number
 ---@return boolean
 function lstg.BoxCheck(unit, left, right, bottom, top)
-	return true
 end
 
 --- 检查两个对象是否发生碰撞
@@ -109,7 +107,6 @@ end
 ---@param unitB lstg.GameObject
 ---@param ignoreworldmask boolean @如果该参数为true，则忽略world掩码
 function lstg.ColliCheck(unitA, unitB, ignoreworldmask)
-	return false
 end
 
 ---@alias lstg.ObjList.Next fun(groupid:number, objid:number):number, lstg.GameObject
@@ -165,7 +162,6 @@ end
 ---@param y2 number|nil
 ---@return number
 function lstg.Angle(x1, y1, x2, y2)
-	return 0
 end
 
 --- 计算向量的模，可以以以下的组合方式填写参数：
@@ -181,7 +177,6 @@ end
 ---@param y2 number|nil
 ---@return number
 function lstg.Dist(x1, y1, x2, y2)
-	return 0
 end
 
 --------------------------------------------------------------------------------

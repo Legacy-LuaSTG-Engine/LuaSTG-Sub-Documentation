@@ -3,6 +3,8 @@
 --- 璀境石
 --------------------------------------------------------------------------------
 
+---@diagnostic disable: missing-return
+
 ---@class lstg.CurveLaser
 local M = {}
 

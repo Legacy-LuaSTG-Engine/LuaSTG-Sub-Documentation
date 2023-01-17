@@ -3,6 +3,8 @@
 --- 璀境石
 --------------------------------------------------------------------------------
 
+---@diagnostic disable: missing-return
+
 --- [LuaSTG Sub v0.17.0 新增]  
 ---@class lstg.ParticleSystem.Vector2
 local T_vec2 = {

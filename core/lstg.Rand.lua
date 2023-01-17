@@ -4,6 +4,8 @@
 ---邮箱:Xiliusha@outlook.com
 ---=====================================
 
+---@diagnostic disable: missing-return
+
 ----------------------------------------
 ---lstg.Random
 

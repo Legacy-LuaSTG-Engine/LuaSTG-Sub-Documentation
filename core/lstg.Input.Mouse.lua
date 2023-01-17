@@ -3,6 +3,8 @@
 --- LuaSTG Sub mouse input
 --------------------------------------------------------------------------------
 
+---@diagnostic disable: missing-return
+
 --- [LuaSTG Sub v0.15.6 新增]  
 ---@class lstg.Input.Mouse
 local M = {}

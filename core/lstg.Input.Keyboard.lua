@@ -3,6 +3,8 @@
 --- LuaSTG Sub keyboard input
 --------------------------------------------------------------------------------
 
+---@diagnostic disable: missing-return
+
 --- [LuaSTG Sub v0.15.6 新增]  
 ---@class lstg.Input.Keyboard
 local M = {}
