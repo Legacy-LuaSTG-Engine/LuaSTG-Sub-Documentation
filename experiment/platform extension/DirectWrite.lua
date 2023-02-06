@@ -3,6 +3,8 @@
 --- 璀境石
 --------------------------------------------------------------------------------
 
+---@diagnostic disable: missing-return
+
 ---@class DirectWrite
 local M = {}
 
@@ -334,6 +336,58 @@ end
 ---@param max_height number
 ---@return DirectWrite.TextLayout
 function M.CreateTextLayout(text, text_format, max_width, max_height)
+end
+
+--------------------------------------------------------------------------------
+--- TextRenderer (DirectWrite & LuaSTG)
+
+---@class DirectWrite.TextRenderer
+local TextRenderer = {}
+
+--- 文本颜色  
+---@param color lstg.Color
+function TextRenderer:SetTextColor(color)
+end
+
+--- 描边颜色  
+---@param color lstg.Color
+function TextRenderer:SetTextOutlineColor(color)
+end
+
+--- 描边宽度（像素）  
+---@param value number
+function TextRenderer:SetTextOutlineWidth(value)
+end
+
+--- 阴影颜色  
+---@param color lstg.Color
+function TextRenderer:SetShadowColor(color)
+end
+
+--- 阴影半径（像素），内部算法为高斯模糊  
+---@param value number
+function TextRenderer:SetShadowRadius(value)
+end
+
+--- 设置阴影的拓展，值范围为 0.0 到 1.0  
+--- 对应 PS 图层效果投影功能的拓展参数（0% 到 100%）  
+---@param value number
+function TextRenderer:SetShadowExtend(value)
+end
+
+--- 在渲染目标上绘制文本  
+--- res_name 为通过 lstg.CreateRenderTarget 创建的渲染目标资源  
+--- 坐标系的原点位于左上角，且 Y 轴朝下  
+--- 坐标系单位为像素  
+---@param res_name string
+---@param text_layout DirectWrite.TextLayout
+---@param offset_x number
+---@param offset_y number
+function TextRenderer:Render(res_name, text_layout, offset_x, offset_y)
+end
+
+---@return DirectWrite.TextRenderer
+function M.CreateTextRenderer()
 end
 
 --------------------------------------------------------------------------------

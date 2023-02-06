@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-return
 
 --- [LuaSTG Sub v0.19.5 新增]
 --- 运行时切换使用的显卡  
