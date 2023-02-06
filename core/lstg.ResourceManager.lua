@@ -147,12 +147,13 @@ end
 --- [LuaSTG Sub 更改]  
 --- 创建渲染目标  
 --- 不提供宽高参数时，创建的渲染目标大小与窗口大小一致，且会自动调整大小  
---- 提供宽高参数时，不会自动调整大小，且会额外创建相同大小的深度与模板缓冲区  
+--- 提供宽高参数时，不会自动调整大小  
 ---@param rtname string
 ---@param width number
 ---@param height number
 ---@overload fun(rtname:string)
-function lstg.CreateRenderTarget(rtname, width, height)
+---@overload fun(rtname:string, width:number, height:number)
+function lstg.CreateRenderTarget(rtname, width, height, depth_buffer)
 end
 
 --- 未来可能移除
