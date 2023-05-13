@@ -239,14 +239,16 @@ local game_object = {
 	timer = 0,
 
 	--- [LuaSTG Ex Plus 新增]  
+	--- [LuaSTG Sub v0.20.7 移除]  
 	--- 【警告】不建议使用  
 	--- 自动根据当前坐标和上一帧坐标计算 vx 和 vy  
-	rmove = false,
+	--rmove = false,
 
 	--- [LuaSTG Ex Plus 新增]  
+	--- [LuaSTG Sub v0.20.7 移除]  
 	--- 【警告】这个叼毛东西可能会坑人，给变量起名字时稍不注意就会重名，并导致奇怪的 bug  
 	--- 剩余暂停时间，影响：frame 回调的执行，速度与坐标的计算，HGE 粒子特效的更新，timer 和 ani 的更新  
-	pause = 0,
+	--pause = 0,
 
 	--- [LuaSTG Ex Plus 新增]  
 	--- 不受超级暂停影响  
