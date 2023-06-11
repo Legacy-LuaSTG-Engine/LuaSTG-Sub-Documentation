@@ -321,16 +321,19 @@ end
 --------------------------------------------------------------------------------
 --- 屏幕后处理（高级功能，高度平台相关）
 
---- [LuaSTG Sub 更改]
---- 应用屏幕后处理效果
---- samplerstate 目前统一填 6
---- floatbuffer 传入 float4 数组
---- texparam 则是以 { texname:string, samplerstate:number } 组成的数组
+--- [LuaSTG Sub 更改]  
+--- 应用屏幕后处理效果  
+--- samplerstate 目前统一填 6  
+--- floatbuffer 传入 float4 数组  
+--- texparam 则是以 { texname:string, samplerstate:number } 组成的数组  
+--- [LuaSTG Sub v0.20.10 更改]  
+--- 恢复原来的 API 参数签名  
 ---@param fxname string
 ---@param texname string
 ---@param samplerstate number
 ---@param blendmode lstg.BlendMode
 ---@param floatbuffer number[][]
+---@overload fun(render_target_name:string, post_effect_name:string, blend_mode:lstg.BlendMode, param:table<string, number|string|lstg.Color>)
 function lstg.PostEffect(fxname, texname, samplerstate, blendmode, floatbuffer, texparam)
 end
 
