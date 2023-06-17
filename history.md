@@ -1,5 +1,13 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.20.10
+    * 资源管理
+        * 新增：初步添加实验性 API 集，资源管理器 API，资源集、资源对象化，具体请看 doc/experiment 文件夹
+    * 图形/渲染
+        * 修改：恢复 `lstg.PostEffect` LuaSTG Plus 版的函数签名，LuaSTG Sub 版的（脑残）函数签名已废弃
+    * Lua 拓展库
+        * 新增：为 `random` 库中的随机数发生器添加 `clone` 、 `serialize` 、 `deserialize` 方法，用于复制、持久化
+        * 移除：移除 `random` 库中的 `sfc` 和 `jsf` 家族随机数发生器
 * LuaSTG Sub v0.20.9
     * 引擎基础
         * 更新：`dear-imgui` 更新到 1.89.6
