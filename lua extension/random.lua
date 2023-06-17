@@ -287,6 +287,8 @@ function M.xoroshiro1024ss() end
 ---------- pcg family ----------
 
 ---@class random.pcg32_oneseq : random.generator
+local pcg32_oneseq = {}
+function pcg32_oneseq:clone() return self end
 
 --- pcg family: pcg32_oneseq  
 --- internal state: 64bits  
@@ -296,6 +298,8 @@ function M.xoroshiro1024ss() end
 function M.pcg32_oneseq() end
 
 ---@class random.pcg32_fast : random.generator
+local pcg32_fast = {}
+function pcg32_fast:clone() return self end
 
 --- pcg family: pcg32_fast  
 --- internal state: 64bits  
@@ -305,6 +309,8 @@ function M.pcg32_oneseq() end
 function M.pcg32_fast() end
 
 ---@class random.pcg64_oneseq : random.generator
+local pcg64_oneseq = {}
+function pcg64_oneseq:clone() return self end
 
 --- pcg family: pcg64_oneseq  
 --- internal state: 128bits  
@@ -314,6 +320,8 @@ function M.pcg32_fast() end
 function M.pcg64_oneseq() end
 
 ---@class random.pcg64_fast : random.generator
+local pcg64_fast = {}
+function pcg64_fast:clone() return self end
 
 --- pcg family: pcg64_fast  
 --- internal state: 128bits  
