@@ -74,7 +74,9 @@ function M:CollisionCheck(x, y, rot, a, b, rect)
 end
 
 --- [LuaSTG Ex Plus 新增]  
+--- [LuaSTG Sub v0.20.11 废弃]  
 --- 将曲线激光与给定数据的碰撞体进行碰撞检测
+---@deprecated
 ---@param x number
 ---@param y number
 ---@param width number

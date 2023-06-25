@@ -1,5 +1,13 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.20.11
+    * 引擎基础
+        * 新增：新增配置项用于禁止程序多开，用于防止出现文件读写冲突导致存档等文件无法写入或者因为同时写入而损坏，具体使用方法请阅读 `doc/specification/引擎配置文件.md`
+    * 游戏对象
+        * 新增：曲线激光对象新增 `CollisionCheckWithWidth` 方法，用于增强 `CollisionCheckWidth` 的功能
+        * 废弃：曲线激光对象 `CollisionCheckWidth` 方法进入废弃状态，未来的版本更新中将会移除
+    * 文档
+        * 修正：修正 API 文档中曲线激光对象 `CollisionCheckWidth` 方法的参数顺序
 * LuaSTG Sub v0.20.10
     * 资源管理
         * 新增：初步添加实验性 API 集，资源管理器 API，资源集、资源对象化，具体请看 doc/experiment 文件夹
