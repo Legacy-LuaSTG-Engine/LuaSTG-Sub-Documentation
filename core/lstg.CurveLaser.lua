@@ -86,6 +86,19 @@ end
 function M:CollisionCheckWidth(x, y, width, rot, a, b, rect)
 end
 
+--- [LuaSTG Sub v0.20.11 新增]  
+---@param width number
+---@param x number
+---@param y number
+---@param rot number
+---@param a number
+---@param b number
+---@param rect boolean
+---@return boolean
+---@overload fun(self:lstg.CurveLaser, width:number, game_object:lstg.GameObject)
+function M:CollisionCheckWithWidth(width, x, y, rot, a, b, rect)
+end
+
 --- [LuaSTG Ex Plus 新增]  
 --- 更改曲线激光所有节点的宽度
 ---@param width number
