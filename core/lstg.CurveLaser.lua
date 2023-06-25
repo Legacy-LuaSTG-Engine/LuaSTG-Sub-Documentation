@@ -77,13 +77,13 @@ end
 --- 将曲线激光与给定数据的碰撞体进行碰撞检测
 ---@param x number
 ---@param y number
+---@param width number
 ---@param rot number
 ---@param a number
 ---@param b number
 ---@param rect boolean
----@param width number
 ---@return boolean
-function M:CollisionCheckWidth(x, y, rot, a, b, rect, width)
+function M:CollisionCheckWidth(x, y, width, rot, a, b, rect)
 end
 
 --- [LuaSTG Ex Plus 新增]  
