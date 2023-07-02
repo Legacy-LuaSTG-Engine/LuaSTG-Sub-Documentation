@@ -1,6 +1,8 @@
 # LuaSTG Sub 更新历史记录
 
 * LuaSTG Sub v0.20.13
+    * 引擎基础
+        * 新增：`config.json` 新增配置项 `persistent_log_file_max_count` 用于限制持久日志文件最大数量，避免日志文件越来越多
     * 游戏对象
         * 移除：移除多个游戏对象上粒子系统相关 API 的无用警告信息，避免日志文件被写入大量无用内容，涉及的 API：
             * `lstg.ParticleStop`
