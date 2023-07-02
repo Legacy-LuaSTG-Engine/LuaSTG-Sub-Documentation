@@ -1,5 +1,13 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.20.13
+    * 游戏对象
+        * 移除：移除多个游戏对象上粒子系统相关 API 的无用警告信息，避免日志文件被写入大量无用内容，涉及的 API：
+            * `lstg.ParticleStop`
+            * `lstg.ParticleFire`
+            * `lstg.ParticleGetn`
+            * `lstg.ParticleGetEmission`
+            * `lstg.ParticleSetEmission`
 * LuaSTG Sub v0.20.12
     * 引擎基础
         * 修复：修复引擎关闭时可能会访问到空指针导致引擎崩溃，且没有报错弹窗或日志记录
