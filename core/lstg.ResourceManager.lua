@@ -55,8 +55,8 @@ end
 --- 7. fnt 纹理字体 HGE sprite font  
 --- 8. ttf TTF字体 truetype font  
 --- 9. fx  屏幕后处理 Direct3D 11 PixelShader  
----@param respool string
----@overload fun(respool:string, restype:number, resname:string)
+---@param respool lstg.ResourcePoolType
+---@overload fun(respool:lstg.ResourcePoolType, restype:number, resname:string)
 function lstg.RemoveResource(respool)
 end
 
