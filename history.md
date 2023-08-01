@@ -1,5 +1,11 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.20.14
+    * 引擎基础
+        * 修复：修复 `lstg.DoFile` 在协同程序上执行时可能出现会意料之外的问题，例如出错时报错信息格式不正确、执行成功时返回值不正确等
+        * 修改：现在 `lstg.DoFile` 的行为与 `dofile` 一致，且不再有“严禁在协同程序中调用”的限制
+    * Lua 虚拟机
+        * 修复：修复标准库 `io` 库和 `os` 库部分函数可能存在的内存泄漏
 * LuaSTG Sub v0.20.13
     * 引擎基础
         * 新增：`config.json` 新增配置项 `persistent_log_file_max_count` 用于限制持久日志文件最大数量，避免日志文件越来越多

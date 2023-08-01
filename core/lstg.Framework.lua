@@ -199,9 +199,8 @@ end
 --------------------------------------------------------------------------------
 --- 资源管理
 
---- [禁止在协同程序中调用此方法]
---- 加载 lua 脚本
---- 并返回 lua 脚本中返回的值
+--- [LuaSTG Sub v0.20.14 修改]  
+--- 加载 lua 源文件，并返回源文件中返回的值  
 ---@param path string
 ---@param archivefile string
 ---@overload fun(scriptfilepath:string)
