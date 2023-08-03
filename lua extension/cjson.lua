@@ -1,5 +1,9 @@
+---@diagnostic disable: missing-return
+
 ---@class cjson
 local M = {}
+
+---@diagnostic disable: lowercase-global
 cjson = M
 
 ---@class cjson.null
