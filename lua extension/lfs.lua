@@ -1,3 +1,5 @@
+---@diagnostic disable: missing-return
+
 ---@class lfs
 local M = {}
 lfs = M
