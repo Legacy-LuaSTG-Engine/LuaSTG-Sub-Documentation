@@ -172,6 +172,44 @@ WordWrapping.Wrap = 0
 WordWrapping.NoWrap = 1
 
 --------------------------------------------------------------------------------
+--- DWRITE_TEXT_METRICS
+
+---@class DirectWrite.TextMetrics
+local TextMetrics = {}
+
+TextMetrics.left = 0.0
+
+TextMetrics.top = 0.0
+
+TextMetrics.width = 0.0
+
+TextMetrics.widthIncludingTrailingWhitespace = 0.0
+
+TextMetrics.height = 0.0
+
+TextMetrics.layoutWidth = 0.0
+
+TextMetrics.layoutHeight = 0.0
+
+TextMetrics.maxBidiReorderingDepth = 0
+
+TextMetrics.lineCount = 0
+
+--------------------------------------------------------------------------------
+--- DWRITE_OVERHANG_METRICS
+
+---@class DirectWrite.OverhangMetrics
+local OverhangMetrics = {}
+
+OverhangMetrics.left = 0.0
+
+OverhangMetrics.top = 0.0
+
+OverhangMetrics.right = 0.0
+
+OverhangMetrics.bottom = 0.0
+
+--------------------------------------------------------------------------------
 --- IDWriteFontCollection
 
 ---@class DirectWrite.FontCollection
@@ -308,6 +346,22 @@ end
 function TextLayout:DetermineMinWidth()
 end
 
+---@param inout DirectWrite.TextMetrics
+function TextLayout:GetMetrics(inout)
+end
+
+---@param inout DirectWrite.OverhangMetrics
+function TextLayout:GetOverhangMetrics(inout)
+end
+
+---@return number
+function TextLayout:GetMaxWidth()
+end
+
+---@return number
+function TextLayout:GetMaxHeight()
+end
+
 --------------------------------------------------------------------------------
 --- IDwriteFactory
 
@@ -328,6 +382,14 @@ end
 ---@param locale_name string
 ---@return DirectWrite.TextFormat
 function M.CreateTextFormat(font_family_name, font_collection, font_weight, font_style, font_stretch, font_size, locale_name)
+end
+
+---@return DirectWrite.TextMetrics
+function M.CreateTextMetrics()
+end
+
+---@return DirectWrite.OverhangMetrics
+function M.CreateOverhangMetrics()
 end
 
 ---@param text string
