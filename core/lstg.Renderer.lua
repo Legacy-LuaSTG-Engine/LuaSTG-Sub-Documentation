@@ -221,10 +221,10 @@ end
 --- uv 坐标以图片左上角为原点，u 轴向右，v 轴向下，单位为像素（不是 0.0 到 1.0）  
 ---@param texname string
 ---@param blendmode lstg.BlendMode
----@param v1 number[]
----@param v2 number[]
----@param v3 number[]
----@param v4 number[]
+---@param v1 { [1]: number, [2]: number, [3]: number, [4]: number, [5]: number, [6]: number | lstg.Color }
+---@param v2 { [1]: number, [2]: number, [3]: number, [4]: number, [5]: number, [6]: number | lstg.Color }
+---@param v3 { [1]: number, [2]: number, [3]: number, [4]: number, [5]: number, [6]: number | lstg.Color }
+---@param v4 { [1]: number, [2]: number, [3]: number, [4]: number, [5]: number, [6]: number | lstg.Color }
 function lstg.RenderTexture(texname, blendmode, v1, v2, v3, v4)
 end
 
