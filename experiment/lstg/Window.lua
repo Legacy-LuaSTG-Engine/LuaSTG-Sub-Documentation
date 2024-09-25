@@ -111,19 +111,11 @@ end
 --------------------------------------------------------------------------------
 --- extension: Windows 11 window corner
 
----@enum lstg.Window.Windows11WindowCornerPreferenceExtension.WindowCornerPreference
-local WindowCornerPreference = {
-    default = 0,
-    disable = 1,
-    enable = 2,
-    small = 3,
-}
+---@class lstg.Window.Windows11Extension
+local Windows11Extension = {}
 
----@class lstg.Window.Windows11WindowCornerPreferenceExtension
-local Windows11WindowCornerPreferenceExtension = {}
-
----@param value lstg.Window.Windows11WindowCornerPreferenceExtension.WindowCornerPreference
-function Windows11WindowCornerPreferenceExtension:setWindowCornerPreference(value)
+---@param allow boolean
+function Windows11Extension:setWindowCornerPreference(allow)
 end
 
 --------------------------------------------------------------------------------
