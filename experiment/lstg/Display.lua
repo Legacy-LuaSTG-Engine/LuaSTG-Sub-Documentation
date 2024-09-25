@@ -123,7 +123,7 @@ local _ = {
     bottom = 0,
 }
 
---- “显示”并非对应于物理显示器，而是对应于操作系统“画面源”  
+--- “显示”并非对应于物理显示器  
 --- 桌面操作系统在应用层和硬件之间提供了一层抽象，使复杂的需求变为可能  
 --- 在操作系统的设置中，可以设置多个显示，
 --- 每个显示可以与物理显示器一一对应，
@@ -133,8 +133,7 @@ local _ = {
 --- 这些操作由合成器完成，比如 Windows 桌面窗口管理器（Desktop Window Manager）、
 --- Linux Wayland Compositor、Android SurfaceFlinger  
 ---   
---- "Display" does not correspond to the physical monitor,
---- but to the OS "Video Source"  
+--- Display does not correspond to the physical monitor  
 --- Desktop operating systems provide a layer of abstraction between the
 --- application layer and the hardware, enabling complex requirements  
 --- In the OS settings, users can set multiple displays,
@@ -142,7 +141,7 @@ local _ = {
 --- can copy and present one display to multiple physical monitors, 
 --- can transfer the display to other devices through the network
 --- or record to the storage without outputting to the physical monitor at all  
---- The logical position of displays is called a "Display Layout" and
+--- The logical position of displays is called a Display Layout and
 --- is not necessarily related to how physical monitors are actually placed  
 --- These operations are done by Compositor, such as
 --- Windows Desktop Window Manager, Linux Wayland Compositor,
