@@ -32,6 +32,8 @@ end
 function M:getStyle()
 end
 
+--[[
+
 ---@param visibility lstg.Window.Visibility
 function M:setVisibility(visibility)
 end
@@ -40,8 +42,16 @@ end
 function M:getVisibility()
 end
 
+--]]
+
+---@return number scale
+function M:getDisplayScale()
+end
+
 --------------------------------------------------------------------------------
 --- cursor setting
+
+--[[
 
 ---@param visible boolean
 function M:setCursorVisibility(visible)
@@ -59,8 +69,12 @@ end
 function M:getCursorCursorShape()
 end
 
+--]]
+
 --------------------------------------------------------------------------------
 --- window placement
+
+--[[
 
 function M:minimize()
 end
@@ -78,6 +92,8 @@ end
 function M:centered(display)
 end
 
+--]]
+
 ---@param display lstg.Display?
 function M:setWindowed(display)
 end
@@ -87,7 +103,7 @@ function M:setFullscreen(display)
 end
 
 --------------------------------------------------------------------------------
---- known platform window instance
+--- known window instance
 
 ---@return lstg.Window
 function M.getMain()
