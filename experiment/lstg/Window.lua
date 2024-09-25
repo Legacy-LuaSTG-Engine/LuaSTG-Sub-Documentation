@@ -89,6 +89,8 @@ end
 function M:centered(display)
 end
 
+-- TODO: 应该把 client 区域尺寸、窗口样式等一起放在 setWindowed 的参数中
+
 ---@param display lstg.Display?
 function M:setWindowed(display)
 end
