@@ -6,16 +6,3 @@
 ---@param gpu string
 function lstg.ChangeGPU(gpu)
 end
-
----@class lstg.MonitorInfo
-local _ = {
-    x = 0,
-    y = 0,
-    width = 0,
-    height = 0,
-}
-
---- [LuaSTG Sub v0.19.6 新增]
----@return lstg.MonitorInfo[]
-function lstg.ListMonitor()
-end
