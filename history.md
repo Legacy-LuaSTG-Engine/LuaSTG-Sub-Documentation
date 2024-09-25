@@ -1,5 +1,10 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.6 (窗口与显示分支)
+    * 窗口
+        * 修复：启用自动隐藏窗口标题栏功能时，拖动窗口后标题栏可能无法自动隐藏
+        * 新增：显示对象 `lstg.Display`，用于枚举显示、获取显示信息
+        * 移除：实验性API `lstg.ListMonitor`，请使用 `lstg.Display` 替代
 * LuaSTG Sub v0.21.5 (沉浸式窗口标题栏分支)
     * 窗口
         * 移除：自动隐藏窗口标题栏功能不再支持 Windows 10
