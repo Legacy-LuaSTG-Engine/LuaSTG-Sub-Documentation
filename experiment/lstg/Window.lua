@@ -100,6 +100,33 @@ function M:setFullscreen(display)
 end
 
 --------------------------------------------------------------------------------
+--- extension
+
+---@generic T
+---@param name `T`
+---@return T?
+function M:queryInterface(name)
+end
+
+--------------------------------------------------------------------------------
+--- extension: Windows 11 window corner
+
+---@enum lstg.Window.Windows11WindowCornerPreferenceExtension.WindowCornerPreference
+local WindowCornerPreference = {
+    default = 0,
+    disable = 1,
+    enable = 2,
+    small = 3,
+}
+
+---@class lstg.Window.Windows11WindowCornerPreferenceExtension
+local Windows11WindowCornerPreferenceExtension = {}
+
+---@param value lstg.Window.Windows11WindowCornerPreferenceExtension.WindowCornerPreference
+function Windows11WindowCornerPreferenceExtension:setWindowCornerPreference(value)
+end
+
+--------------------------------------------------------------------------------
 --- known window instance
 
 ---@return lstg.Window
