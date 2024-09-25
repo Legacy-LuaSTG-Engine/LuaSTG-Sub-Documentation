@@ -74,16 +74,16 @@ end
 function M:close()
 end
 
----@param monitor lstg.PlatformMonitor?
-function M:centered(monitor)
+---@param display lstg.Display?
+function M:centered(display)
 end
 
----@param monitor lstg.PlatformMonitor?
-function M:setWindowed(monitor)
+---@param display lstg.Display?
+function M:setWindowed(display)
 end
 
----@param monitor lstg.PlatformMonitor?
-function M:setFullscreen(monitor)
+---@param display lstg.Display?
+function M:setFullscreen(display)
 end
 
 --------------------------------------------------------------------------------
