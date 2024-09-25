@@ -8,31 +8,26 @@ local M = {}
 
 ---@param width number
 ---@param height number
-function M:setSize(width, height)
+function M:setClientAreaSize(width, height)
 end
 
----@return number width
----@return number height
-function M:getSize()
+---@return lstg.Display.Size size
+function M:getClientAreaSize()
 end
 
 ---@param text string
 function M:setTitle(text)
 end
 
----@return string text
-function M:getTitle()
-end
-
 ---@param style lstg.Window.FrameStyle
 function M:setStyle(style)
 end
 
+--[[
+
 ---@return lstg.Window.FrameStyle style
 function M:getStyle()
 end
-
---[[
 
 ---@param visibility lstg.Window.Visibility
 function M:setVisibility(visibility)
@@ -88,11 +83,11 @@ end
 function M:close()
 end
 
+--]]
+
 ---@param display lstg.Display?
 function M:centered(display)
 end
-
---]]
 
 ---@param display lstg.Display?
 function M:setWindowed(display)
