@@ -263,7 +263,7 @@ end
 ---   
 ---@see lstg.Display.getAll
 ---@see lstg.Display.getPrimary
----@param window lstg.PlatformWindow
+---@param window lstg.Window
 ---@return lstg.Display monitor
 function M.getNearestFromWindow(window)
 end

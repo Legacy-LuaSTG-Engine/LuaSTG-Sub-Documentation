@@ -1,6 +1,6 @@
 ---@diagnostic disable: missing-return
 
----@class lstg.PlatformWindow
+---@class lstg.Window
 local M = {}
 
 --------------------------------------------------------------------------------
@@ -24,19 +24,19 @@ end
 function M:getTitle()
 end
 
----@param style lstg.PlatformWindow.FrameStyle
+---@param style lstg.Window.FrameStyle
 function M:setStyle(style)
 end
 
----@return lstg.PlatformWindow.FrameStyle style
+---@return lstg.Window.FrameStyle style
 function M:getStyle()
 end
 
----@param visibility lstg.PlatformWindow.Visibility
+---@param visibility lstg.Window.Visibility
 function M:setVisibility(visibility)
 end
 
----@return lstg.PlatformWindow.Visibility visibility
+---@return lstg.Window.Visibility visibility
 function M:getVisibility()
 end
 
@@ -51,11 +51,11 @@ end
 function M:getCursorVisibility()
 end
 
----@param shape lstg.PlatformWindow.CursorShape
+---@param shape lstg.Window.CursorShape
 function M:setCursorCursorShape(shape)
 end
 
----@return lstg.PlatformWindow.CursorShape shape
+---@return lstg.Window.CursorShape shape
 function M:getCursorCursorShape()
 end
 
@@ -89,7 +89,7 @@ end
 --------------------------------------------------------------------------------
 --- known platform window instance
 
----@return lstg.PlatformWindow
+---@return lstg.Window
 function M.getMain()
 end
 

@@ -1,4 +1,4 @@
----@enum lstg.PlatformWindow.FrameStyle
+---@enum lstg.Window.FrameStyle
 local E = {
     normal = 0,
     fixed = 1,

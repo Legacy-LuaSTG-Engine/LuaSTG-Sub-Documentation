@@ -1,4 +1,4 @@
----@enum lstg.PlatformWindow.Visibility
+---@enum lstg.Window.Visibility
 local E = {
     normal = 0,
     hidden = 1,
