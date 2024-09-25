@@ -115,6 +115,18 @@
 --- 类
 --- Class
 
+---@class lstg.Display.Size
+local _ = {
+    width = 0,
+    height = 0,
+}
+
+---@class lstg.Display.Point
+local _ = {
+    x = 0,
+    y = 0,
+}
+
 ---@class lstg.Display.Rect
 local _ = {
     left = 0,
@@ -155,8 +167,7 @@ local M = {}
 
 --- 获取显示尺寸（像素）  
 --- Get display size (in pixels)  
----@return number width
----@return number height
+---@return lstg.Display.Size size
 function M:getSize()
 end
 
@@ -168,8 +179,7 @@ end
 --- the only one display position is typically origin (0, 0)  
 --- For devices with multiple physical monitors, position of
 --- each display is determined by the Display Layout
----@return number x
----@return number y
+---@return lstg.Display.Point point
 function M:getPosition()
 end
 
@@ -184,15 +194,13 @@ end
 --- Get display work-area size (in pixels)  
 --- Work-area does not contain shells provided by the OS,
 --- such as the StatusBar, TaskBar, etc...
----@return number width
----@return number height
+---@return lstg.Display.Size size
 function M:getWorkAreaSize()
 end
 
 ---@see lstg.Display.getPosition
 ---@see lstg.Display.getWorkAreaSize
----@return number x
----@return number y
+---@return lstg.Display.Point point
 function M:getWorkAreaPosition()
 end
 
