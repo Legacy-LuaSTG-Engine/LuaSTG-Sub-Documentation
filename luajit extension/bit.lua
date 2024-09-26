@@ -1,3 +1,7 @@
+--- LuaJIT built-in library: bit
+
+---@diagnostic disable: missing-return
+
 ---@class bit
 local M = {}
 bit = M
