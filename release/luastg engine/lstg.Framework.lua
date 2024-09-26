@@ -144,49 +144,11 @@ function lstg.EnumGPUs()
     return { "Intel XXXX", "NVIDIA YYYY", "AMD ZZZZ" }
 end
 
---- lstg.ChangeVideoMode
---- 此 API 经历了多次变动，但是随着画布模式的推出，很多行为已经成为历史  
---- 现在它的使用方式更简单，而且不再需要处理复杂的显示模式枚举、挑选、应用、错误恢复  
---- 
---- [LuaSTG Sub 更改]  
---- 更改显示模式  
---- 如果要进入独占全屏，最好填写正确的宽、高和刷新率的分子和分母  
---- 不填写则由引擎自动决定，引擎会尽可能地选择 60Hz 的整数倍或者靠近 60Hz 的刷新率  
---- 运气差的时候可能会被自动选择到 75Hz、48Hz 这样的刷新率  
----   * lstg.ChangeVideoMode(width:number, height:number, windowed:boolean, vsync:boolean):boolean  
----   * lstg.ChangeVideoMode(width:number, height:number, windowed:boolean, vsync:boolean, refresh_rate_numerator:number, refresh_rate_denominator:number):boolean  
---- 
---- [LuaSTG Sub v0.19.6 更改]
---- 从 LuaSTG Sub v0.19.6 开始，参数的传递方式有所变化。  
----   
---- 窗口化写法，此时 windowed 必须为 true：  
----   * lstg.ChangeVideoMode(windowed:boolean, width:number, height:number, vsync:boolean):boolean  
----   * lstg.ChangeVideoMode(windowed:boolean, width:number, height:number, vsync:boolean, monitor_rect:lstg.MonitorInfo):boolean  
----   * lstg.ChangeVideoMode(windowed:boolean, width:number, height:number, vsync:boolean, monitor_rect:lstg.MonitorInfo, borderless:boolean):boolean  
----   
---- 全屏无边框窗口写法，此时 windowed 必须为 true：  
----   * lstg.ChangeVideoMode(windowed:boolean, monitor_rect:lstg.MonitorInfo, vsync:boolean):boolean  
----   
---- 独占全屏写法，此时 windowed 必须为 false：  
----   * lstg.ChangeVideoMode(windowed:boolean, width:number, height:number, vsync:boolean):boolean  
----   * lstg.ChangeVideoMode(windowed:boolean, width:number, height:number, vsync:boolean, refresh_rate_numerator:number, refresh_rate_denominator:number):boolean  
----   
---- 出于兼容性考虑，以下传统写法仍然支持：  
----   * lstg.ChangeVideoMode(width:number, height:number, windowed:boolean, vsync:boolean):boolean  
---- 
---- [LuaSTG Sub v0.19.100 更改]  
---- 进行了以下修改：
----   * 全屏不再是固定的传统独占全屏
----   * 分辨率为画布分辨率而不是窗口、传统独占全屏显示模式的分辨率
-
---- [LuaSTG Sub v0.19.100 修改]  
---- 注：该 API 的行为已发生巨大的变动，更多内容请查看上方的变更历史  
---- 指定画面显示方式：画布分辨率、全屏、垂直同步  
---- 画布分辨率不再固定等同于窗口分辨率  
---- 窗口分辨率可以自由调整，而不改变画布分辨率  
---- 当画布分辨率和窗口不匹配时，引擎将自动缩放画布来显示画面  
---- 全屏模式不再固定使用传统的独占全屏：  
----   * Windows 10/11 使用桌面合成引擎  
+--- [LuaSTG Sub 修改]  
+--- 指定画面显示方式：画布分辨率（渲染分辨率）、全屏、垂直同步  
+--- 渲染分辨率可以不等于窗口分辨率，窗口大小可以自由调整，引擎会自动缩放显示画面  
+--- 全屏模式不再固定采用传统独占全屏，而是自动从多种全屏方式中选择：  
+---   * Windows 10/11 优先使用桌面合成引擎，不支持时尝试进入传统独占全屏，若失败则使用全屏无边框窗口  
 ---   * Windows 7/8/8.1 先尝试进入传统独占全屏，若失败则使用全屏无边框窗口  
 ---@param width number
 ---@param height number
