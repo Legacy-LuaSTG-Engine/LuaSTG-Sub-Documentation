@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-return
 
 ---@class lstg.Mesh
 local M = {}
