@@ -54,7 +54,7 @@ end
 
 ---@param width number
 ---@param height number
----@param style lstg.Window.FrameStyle
+---@param style lstg.Window.FrameStyle?
 ---@param display lstg.Display?
 function M:setWindowed(width, height, style, display)
 end
