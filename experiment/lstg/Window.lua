@@ -6,38 +6,17 @@ local M = {}
 --------------------------------------------------------------------------------
 --- window setting
 
----@param width number
----@param height number
-function M:setClientAreaSize(width, height)
+---@param text string
+function M:setTitle(text)
 end
 
 ---@return lstg.Display.Size size
 function M:getClientAreaSize()
 end
 
----@param text string
-function M:setTitle(text)
-end
-
----@param style lstg.Window.FrameStyle
-function M:setStyle(style)
-end
-
---[[
-
 ---@return lstg.Window.FrameStyle style
 function M:getStyle()
 end
-
----@param visibility lstg.Window.Visibility
-function M:setVisibility(visibility)
-end
-
----@return lstg.Window.Visibility visibility
-function M:getVisibility()
-end
-
---]]
 
 ---@return number scale
 function M:getDisplayScale()
@@ -69,30 +48,15 @@ end
 --------------------------------------------------------------------------------
 --- window placement
 
---[[
-
-function M:minimize()
-end
-
-function M:maximize()
-end
-
-function M:restore()
-end
-
-function M:close()
-end
-
---]]
-
 ---@param display lstg.Display?
 function M:centered(display)
 end
 
--- TODO: 应该把 client 区域尺寸、窗口样式等一起放在 setWindowed 的参数中
-
+---@param width number
+---@param height number
+---@param style lstg.Window.FrameStyle
 ---@param display lstg.Display?
-function M:setWindowed(display)
+function M:setWindowed(width, height, style, display)
 end
 
 ---@param display lstg.Display?
