@@ -75,8 +75,6 @@ end
 --------------------------------------------------------------------------------
 --- cursor setting
 
---[[
-
 ---@param visible boolean
 function M:setCursorVisibility(visible)
 end
@@ -84,6 +82,8 @@ end
 ---@return boolean visible
 function M:getCursorVisibility()
 end
+
+--[[
 
 ---@param shape lstg.Window.CursorShape
 function M:setCursorCursorShape(shape)
