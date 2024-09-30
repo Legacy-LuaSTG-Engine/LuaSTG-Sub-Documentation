@@ -135,6 +135,13 @@ local Windows11Extension = {}
 function Windows11Extension:setWindowCornerPreference(allow)
 end
 
+--- 在 Windows 11 上启用自动隐藏标题栏功能  
+---   
+--- Enable auto hide TitlBar on Windows 11  
+---@param allow boolean
+function Windows11Extension:setTitleBarAutoHidePreference(allow)
+end
+
 --------------------------------------------------------------------------------
 --- 静态方法
 --- Static methods
