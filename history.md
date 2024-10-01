@@ -1,5 +1,9 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.8 (窗口与显示分支)
+    * 窗口
+        * 新增：平台拓展方法 `lstg.Window.Windows11Extension:setTitleBarAutoHidePreference`，用于在 Windows 11 上开启自动隐藏标题栏功能
+        * 修改：自动隐藏标题栏功能默认关闭（由沉浸式窗口标题栏分支引入），如有需要请主动开启
 * LuaSTG Sub v0.21.7 (窗口与显示分支)
     * 图形/渲染
         * 新增：交换链对象 `lstg.SwapChain`，用于控制渲染分辨率、缩放方式、垂直同步等
