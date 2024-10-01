@@ -1,5 +1,8 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.9
+    * 窗口
+        * 修复：窗口创建时，显示位置偏下的问题
 * LuaSTG Sub v0.21.8 (窗口与显示分支)
     * 窗口
         * 新增：平台拓展方法 `lstg.Window.Windows11Extension:setTitleBarAutoHidePreference`，用于在 Windows 11 上开启自动隐藏标题栏功能
