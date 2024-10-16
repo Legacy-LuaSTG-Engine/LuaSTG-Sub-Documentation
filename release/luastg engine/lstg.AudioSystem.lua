@@ -1,87 +1,137 @@
+---@diagnostic disable: missing-return, duplicate-set-field
+
 --------------------------------------------------------------------------------
 --- LuaSTG Sub 音频命令
 --- 璀境石
 --------------------------------------------------------------------------------
 
----@diagnostic disable: missing-return
-
---------------------------------------------------------------------------------
---- 迁移指南
-
--- 关于全局音量：
--- lstg.SetSEVolume 和 lstg.SetBGMVolume 现在对播放中的音频也会生效
-
--- 关于 lstg.UpdateSound
--- 已经移除
+---@class lstg
+local lstg = lstg or {}
 
 --------------------------------------------------------------------------------
 --- 状态
+--- Status
 
 ---@alias lstg.AudioStatus '"playing"' | '"paused"' | '"stopped"'
 
 --------------------------------------------------------------------------------
 --- 音效
+--- Sound effect
 
----@param sndname string
----@param volume number
----@param pan number
-function lstg.PlaySound(sndname, volume, pan)
+--- 播放音效  
+--- 参数 `volume` 指定音量大小，范围是 0.0 到 1.0 的浮点数，默认为 1.0  
+--- 
+--- Play sound effect  
+--- Parameter `volume` specifies the volume level,
+--- accepts number from 0.0 to 1.0, default to 1.0.  
+---@param se_resource_name string
+---@param volume number?
+---@param pan number?
+function lstg.PlaySound(se_resource_name, volume, pan)
 end
 
----@param sndname string
-function lstg.StopSound(sndname)
+---@param se_resource_name string
+function lstg.StopSound(se_resource_name)
 end
 
----@param sndname string
-function lstg.PauseSound(sndname)
+---@param se_resource_name string
+function lstg.PauseSound(se_resource_name)
 end
 
----@param sndname string
-function lstg.ResumeSound(sndname)
+---@param se_resource_name string
+function lstg.ResumeSound(se_resource_name)
 end
 
----@param sndname string
+---@param se_resource_name string
 ---@return lstg.AudioStatus
-function lstg.GetSoundState(sndname)
-end
-
---- [LuaSTG Sub 变更]
---- 设置全局音效音量
----@param volume number
-function lstg.SetSEVolume(volume)
+function lstg.GetSoundState(se_resource_name)
 end
 
 --------------------------------------------------------------------------------
 --- 音乐
+--- Music
 
---- position 以秒为单位
----@param bgmname string
----@param volume number
----@param position number
-function lstg.PlayMusic(bgmname, volume, position)
+--- 播放音乐  
+--- 参数 `volume` 指定音量大小，范围是 0.0 到 1.0 的浮点数，默认为 1.0  
+--- 参数 `position` 指定起始位置，单位是秒，默认为 0.0 秒  
+--- 
+--- Play music  
+--- Parameter `volume` specifies the volume level,
+--- accepts number from 0.0 to 1.0, default to 1.0.  
+--- Parameter `position` specifies the start position in seconds, default to 0.0s.  
+---@param music_resource_name string
+---@param volume number?
+---@param position number?
+function lstg.PlayMusic(music_resource_name, volume, position)
 end
 
----@param bgmname string
-function lstg.StopMusic(bgmname)
+---@param music_resource_name string
+function lstg.StopMusic(music_resource_name)
 end
 
----@param bgmname string
-function lstg.PauseMusic(bgmname)
+---@param music_resource_name string
+function lstg.PauseMusic(music_resource_name)
 end
 
----@param bgmname string
-function lstg.ResumeMusic(bgmname)
+---@param music_resource_name string
+function lstg.ResumeMusic(music_resource_name)
 end
 
----@param bgmname string
+---@param music_resource_name string
 ---@return lstg.AudioStatus
-function lstg.GetMusicState(bgmname)
+function lstg.GetMusicState(music_resource_name)
 end
 
---- [LuaSTG Sub 变更]
---- 设置全局音乐音量
---- 当参数为 2 个时，设置指定音乐的音量
+--- 单独设置音乐音量  
+--- 
+--- Setting the music volume individually  
+---@param music_resource_name string
 ---@param volume number
----@overload fun(bgmname:string, volume:number)
+function lstg.SetBGMVolume(music_resource_name, volume)
+end
+
+--------------------------------------------------------------------------------
+--- 混音器
+--- Mixer
+
+--- 设置音效通道混音器音量  
+--- 
+--- Setting the sound effect channel mixer volume  
+--- 
+--- ```
+--- +------+
+--- | SE 1 |--------------+
+--- +------+              |
+---                       v
+--- +------+     +------------------+
+--- | SE 2 |---->| SE Channel Mixer |----> Audio Output
+--- +------+     +------------------+
+---                       ^
+--- +------+              |
+--- | SE...|--------------+
+--- +------+
+--- ```
+---@param volume number
+function lstg.SetSEVolume(volume)
+end
+
+--- 设置音乐通道混音器音量  
+--- 
+--- Setting the music channel mixer volume  
+--- 
+--- ```
+--- +---------+
+--- | Music 1 |----------------+
+--- +---------+                |
+---                            v
+--- +---------+     +---------------------+
+--- | Music 2 |---->| Music Channel Mixer |----> Audio Output
+--- +---------+     +---------------------+
+---                            ^
+--- +---------+                |
+--- | Music...|----------------+
+--- +---------+
+--- ```
+---@param volume number
 function lstg.SetBGMVolume(volume)
 end
