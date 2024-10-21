@@ -1,5 +1,10 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.14
+    * 音频
+        * 修复：音效在调用 `lstg.PlaySound` 之后，`lstg.GetSoundState` 读取音效状态只能得到 `"playing"`
+    * 窗口
+        * 修复：引擎启动时窗口会极其短暂地出现在显示器左上角
 * LuaSTG Sub v0.21.13 (第二代游戏循环更新顺序分支)
     * 游戏对象：
         * 修复：超级暂停计时器的更新时机，从 `lstg.ObjFrame` 移动到 `lstg.AfterFrame` 中（仅影响“第二代游戏循环更新顺序”）
