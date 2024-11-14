@@ -1,5 +1,8 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.19
+    * 引擎基础
+        * 修改：配置文件 `config.json` 的 `graphics_system`、`audio_system`、`window` 配置项移动到根层级，并新增 `timing` 配置项，请阅读 `doc/specification/引擎配置文件.md` 查看详细内容
 * LuaSTG Sub v0.21.18
     * 引擎基础
         * 修改：配置文件 `config.json` 支持更丰富的日志配置，请阅读 `doc/specification/引擎配置文件.md` 查看详细内容
