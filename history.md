@@ -1,14 +1,8 @@
 # LuaSTG Sub 更新历史记录
 
-* LuaSTG Sub v0.21.19
-    * 引擎基础
-        * 修改：配置文件 `config.json` 的 `graphics_system`、`audio_system`、`window` 配置项移动到根层级，并新增 `timing` 配置项，请阅读 `doc/specification/引擎配置文件.md` 查看详细内容
-* LuaSTG Sub v0.21.18
-    * 引擎基础
-        * 修改：配置文件 `config.json` 支持更丰富的日志配置，请阅读 `doc/specification/引擎配置文件.md` 查看详细内容
+* LuaSTG Sub v0.21.17/v0.21.18/v0.21.19（增强的引擎配置文件分支）
     * 窗口
         * 修复：修复每次居中窗口时都会出现 24 字节的内存泄漏的问题
-* LuaSTG Sub v0.21.17
     * 调试
         * 修改：内存使用量调试窗口补充当前进程缺页中断数量、工作集大小等指标
         * 修改：改进内存使用量调试窗口显示内容的方式，划分为多个可折叠的栏目
