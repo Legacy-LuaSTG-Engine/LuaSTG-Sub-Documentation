@@ -216,6 +216,8 @@ local game_object = {
 	rot = 0.0,
 
 	--- 平面旋转角度自增量（角度制），和 navi 冲突
+	omega = 0.0,
+	--- 和 omega 相同，但 omiga 是一个历史遗留错误
 	omiga = 0.0,
 
 	--- 【只读】  
