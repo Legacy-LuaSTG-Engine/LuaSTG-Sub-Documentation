@@ -1,5 +1,21 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.17/v0.21.18/v0.21.19（增强的引擎配置文件分支）
+    * 窗口
+        * 修复：修复每次居中窗口时都会出现 24 字节的内存泄漏的问题
+    * 调试
+        * 修改：内存使用量调试窗口补充当前进程缺页中断数量、工作集大小等指标
+        * 修改：改进内存使用量调试窗口显示内容的方式，划分为多个可折叠的栏目
+    * 引擎基础
+        * 修改：配置文件 `config.json` 支持更丰富的配置，用于替代 `launch` 脚本，请阅读 `doc/specification/引擎配置文件.md` 查看详细内容
+* LuaSTG Sub v0.21.16
+    * 网络
+        * 新增：实验性 HTTP 客户端库 `http` 和类 `http.Request`
+    * Lua 拓展库
+        * 修改：`luasocket` 网络库改为可选功能，默认情况下禁用
+* LuaSTG Sub v0.21.15
+    * 窗口
+        * 修复：`lstg.Window:getClientAreaSize` 无法读取当前窗口尺寸的问题
 * LuaSTG Sub v0.21.14
     * 音频
         * 修复：音效在调用 `lstg.PlaySound` 之后，`lstg.GetSoundState` 读取音效状态只能得到 `"playing"`
