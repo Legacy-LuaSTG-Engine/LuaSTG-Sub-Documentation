@@ -217,7 +217,7 @@ local game_object = {
 
 	--- 平面旋转角度自增量（角度制），和 navi 冲突
 	omega = 0.0,
-	--- 和 omega 相同，但 omiga 是一个历史遗留错误
+	--- 和 omega 相同，但 omiga 是一个历史遗留错误，现在通过两个变量都可以访问到同一个值
 	omiga = 0.0,
 
 	--- 【只读】  
