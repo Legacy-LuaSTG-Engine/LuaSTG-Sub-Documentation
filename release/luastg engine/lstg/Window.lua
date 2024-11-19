@@ -121,6 +121,27 @@ function M:queryInterface(name)
 end
 
 --------------------------------------------------------------------------------
+--- 拓展：输入法
+--- Extension: Input Method
+
+---@class lstg.Window.InputMethodExtension
+local InputMethodExtension = {}
+
+---@see lstg.Window.InputMethodExtension.setInputMethodEnabled
+---@return boolean
+function InputMethodExtension:isInputMethodEnabled()
+end
+
+--- 启用或禁用输入法  
+--- 注：默认情况下输入法被禁用  
+--- 
+--- Enable or disable Input Method  
+--- Note: Input Method is disabled by default
+---@param enabled boolean
+function InputMethodExtension:setInputMethodEnabled(enabled)
+end
+
+--------------------------------------------------------------------------------
 --- 拓展：Windows 11 相关拓展
 --- Extension: Windows 11
 
