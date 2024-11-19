@@ -193,6 +193,12 @@ end
 function TextInputExtension:addCursorPosition(offset)
 end
 
+--- 从当前虚拟光标位置删除 `count` 个字符，不填写 `count` 时默认删除 1 个字符  
+--- 相当于按下退格键（Backspace）  
+--- 
+--- Delete 'count' characters from the current virtual cursor position.  
+--- If 'count' is not filled in, 1 character will be deleted by default.  
+--- Equivalent to pressing the Backspace key.  
 ---@param count integer?
 function TextInputExtension:remove(count)
 end
