@@ -136,9 +136,65 @@ end
 --- 注：默认情况下输入法被禁用  
 --- 
 --- Enable or disable Input Method  
---- Note: Input Method is disabled by default
+--- Note: Input Method is disabled by default  
 ---@param enabled boolean
 function InputMethodExtension:setInputMethodEnabled(enabled)
+end
+
+--- 设置输入法组词和候选词窗口出现位置  
+--- 
+--- Set the position of the composition window and candidates window  
+---@param x number
+---@param y number
+function InputMethodExtension:setInputMethodPosition(x, y)
+end
+
+--------------------------------------------------------------------------------
+--- 拓展：文本输入
+--- Extension: Text Input
+
+---@class lstg.Window.TextInputExtension
+local TextInputExtension = {}
+
+---@see lstg.Window.TextInputExtension.setEnabled
+---@return boolean
+function TextInputExtension:isEnabled()
+end
+
+---@param enabled boolean
+function TextInputExtension:setEnabled(enabled)
+end
+
+function TextInputExtension:clear()
+end
+
+---@return string
+function TextInputExtension:toString()
+end
+
+---@see lstg.Window.TextInputExtension.setCursorPosition
+---@return integer position
+function TextInputExtension:getCursorPosition()
+end
+
+--- 设置当前虚拟光标位置，虚拟光标决定了用户输入文本时，文本插入的位置  
+--- 虚拟光标位置从 0 开始，按照 Unicode 码点计算位置  
+--- 
+--- Set the current virtual cursor position,
+--- which determines the insertion position of text when the user inputs text.  
+--- Virtual cursor position starts from 0 and
+--- calculates position based on Unicode code points.  
+---@param position integer
+function TextInputExtension:setCursorPosition(position)
+end
+
+---@see lstg.Window.TextInputExtension.setCursorPosition
+---@param offset integer
+function TextInputExtension:addCursorPosition(offset)
+end
+
+---@param count integer?
+function TextInputExtension:remove(count)
 end
 
 --------------------------------------------------------------------------------
