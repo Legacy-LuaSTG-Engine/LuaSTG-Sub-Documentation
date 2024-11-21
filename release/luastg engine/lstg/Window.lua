@@ -204,13 +204,19 @@ end
 --- 不填写 `count` 时默认删除 1 个字符  
 --- 
 --- Delete 'count' characters from the virtual cursor position `position`.  
---- If `position` is nil, default to current virtual cursor position.  
---- If `count` is nil, default to 1.  
+--- If `position` parameter not provided, default to current virtual cursor position.  
+--- If `count` parameter not provided, default to 1.  
 ---@param position integer?
 ---@param count integer?
 function TextInputExtension:remove(position, count)
 end
 
+--- 用于模拟退格键的行为，删除字符同时虚拟光标位置向前移动  
+--- 不提供 `count` 参数时，默认删除 1 个字符  
+--- 
+--- Used to simulate the behavior of the _Backspace_,
+--- deleting characters and moving the virtual cursor forward  
+--- If `count` parameter not provided, 1 character is deleted by default  
 ---@param count integer?
 function TextInputExtension:backspace(count)
 end
