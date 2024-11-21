@@ -193,14 +193,22 @@ end
 function TextInputExtension:addCursorPosition(offset)
 end
 
---- 从当前虚拟光标位置删除 `count` 个字符，不填写 `count` 时默认删除 1 个字符  
---- 相当于按下退格键（Backspace）  
+---@param position integer
+---@param text string
+---@overload fun(self:lstg.Window.TextInputExtension, text:string)
+function TextInputExtension:insert(position, text)
+end
+
+--- 从虚拟光标位置 `position` 删除 `count` 个字符  
+--- 不填写 `position` 是默认为当前虚拟光标位置  
+--- 不填写 `count` 时默认删除 1 个字符  
 --- 
---- Delete 'count' characters from the current virtual cursor position.  
---- If 'count' is not filled in, 1 character will be deleted by default.  
---- Equivalent to pressing the Backspace key.  
+--- Delete 'count' characters from the virtual cursor position `position`.  
+--- If `position` is nil, default to current virtual cursor position.  
+--- If `count` is nil, default to 1.  
+---@param position integer?
 ---@param count integer?
-function TextInputExtension:remove(count)
+function TextInputExtension:remove(position, count)
 end
 
 --------------------------------------------------------------------------------
