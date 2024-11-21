@@ -211,6 +211,10 @@ end
 function TextInputExtension:remove(position, count)
 end
 
+---@param count integer?
+function TextInputExtension:backspace(count)
+end
+
 --------------------------------------------------------------------------------
 --- 拓展：Windows 11 相关拓展
 --- Extension: Windows 11
