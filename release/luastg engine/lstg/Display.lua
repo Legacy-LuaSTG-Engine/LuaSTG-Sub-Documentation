@@ -165,6 +165,10 @@ local M = {}
 --- 显示信息
 --- Display info
 
+---@return string
+function M:getFriendlyName()
+end
+
 --- 获取显示尺寸（像素）  
 --- Get display size (in pixels)  
 ---@return lstg.Display.Size size
