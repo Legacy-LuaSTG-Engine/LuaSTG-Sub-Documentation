@@ -1,5 +1,14 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.22
+    * Lua 拓展库
+        * 修复：适配 Steam API 1.61，修复编译失败问题
+    * 窗口
+        * 修复：修复可自动隐藏的窗口标题栏最大化/最小化按钮有时会失效的问题
+        * 新增：`lstg.Display` 新增 `getFriendlyName` 方法
+    * 图形/渲染
+        * 新增：`lstg.SwapChain` 新增 `setWindowed` 方法，用于完全重新创建交换链
+        * 修改：`lstg.SwapChain:setSize` 不再重新创建交换链，而是修改渲染缓冲区尺寸
 * LuaSTG Sub v0.21.21（文本输入和输入法支持分支）
     * 游戏对象
         * 修复：游戏对象管理器判断碰撞组索引范围使用了错误的条件
