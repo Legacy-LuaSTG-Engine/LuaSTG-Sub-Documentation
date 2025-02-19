@@ -138,6 +138,155 @@ function Mesh:setIndex(index_index, vertex_index)
 end
 
 --------------------------------------------------------------------------------
+--- 高级网格数据操作
+--- High-level Mesh data operation
+
+--- 顶点写入器可以简化顶点数据操作  
+--- `write` 成员函数会自增顶点索引，不需要手动调用 `next`  
+--- `position`、`uv`、`color` 需要手动调用 `next`  
+--- 示例代码：
+--- ```lua
+--- local mesh = ...
+--- local writer = mesh:createVertexWriter()
+--- local white = lstg.Color(255, 255, 255, 255)
+--- writer
+---     :seek(0)
+---     :position(0.0, 0.0):uv(0.0, 1.0):color(white):next()
+---     :position(0.5, 1.0):uv(0.5, 0.0):color(white):next()
+---     :position(1.0, 0.0):uv(1.0, 1.0):color(white):next()
+---     :commit()
+--- ```
+---@class lstg.Mesh.VertexWriter
+local VertexWriter = {}
+
+---@param vertex_index integer
+---@return lstg.Mesh.VertexWriter
+function VertexWriter:seek(vertex_index)
+end
+
+---@see lstg.Mesh.setVertex
+---@param x number
+---@param y number
+---@param z number
+---@param u number
+---@param v number
+---@param r number
+---@param g number
+---@param b number
+---@param a number?
+---@return lstg.Mesh.VertexWriter
+function VertexWriter:write(x, y, z, u, v, r, g, b, a)
+end
+
+---@see lstg.Mesh.setVertex
+---@param x number
+---@param y number
+---@param u number
+---@param v number
+---@param r number
+---@param g number
+---@param b number
+---@param a number?
+---@return lstg.Mesh.VertexWriter
+function VertexWriter:write(x, y, u, v, r, g, b, a)
+end
+
+---@see lstg.Mesh.setVertex
+---@param x number
+---@param y number
+---@param z number
+---@param u number
+---@param v number
+---@param color lstg.Color
+---@return lstg.Mesh.VertexWriter
+function VertexWriter:write(x, y, z, u, v, color)
+end
+
+---@see lstg.Mesh.setVertex
+---@param x number
+---@param y number
+---@param u number
+---@param v number
+---@param color lstg.Color
+---@return lstg.Mesh.VertexWriter
+function VertexWriter:write(x, y, u, v, color)
+end
+
+---@see lstg.Mesh.setPosition
+---@param x number
+---@param y number
+---@param z number?
+---@return lstg.Mesh.VertexWriter
+function VertexWriter:position(x, y, z)
+end
+
+---@see lstg.Mesh.setTextureCoordinates
+---@param u number
+---@param v number
+---@return lstg.Mesh.VertexWriter
+function VertexWriter:uv(u, v)
+end
+
+---@see lstg.Mesh.setColor
+---@param r number
+---@param g number
+---@param b number
+---@param a number?
+---@return lstg.Mesh.VertexWriter
+function VertexWriter:color(r, g, b, a)
+end
+
+---@see lstg.Mesh.setColor
+---@param color lstg.Color
+---@return lstg.Mesh.VertexWriter
+function VertexWriter:color(color)
+end
+
+---@return lstg.Mesh.VertexWriter
+function VertexWriter:next()
+end
+
+---@return lstg.Mesh.VertexWriter
+function VertexWriter:commit()
+end
+
+---@return lstg.Mesh.VertexWriter
+function Mesh:createVertexWriter()
+end
+
+--- 顶点索引写入器可以简化顶点索引数据操作  
+--- 示例代码：
+--- ```lua
+--- local mesh = ...
+--- local writer = mesh:createIndexWriter()
+--- writer
+---     :seek(0)
+---     :write(0, 1, 3)
+---     :write(1, 2, 3)
+---     :commit()
+--- ```
+---@class lstg.Mesh.IndexWriter
+local IndexWriter = {}
+
+---@param index_index integer
+---@return lstg.Mesh.IndexWriter
+function IndexWriter:seek(index_index)
+end
+
+---@param ... integer
+---@return lstg.Mesh.IndexWriter
+function IndexWriter:write(...)
+end
+
+---@return lstg.Mesh.IndexWriter
+function IndexWriter:commit()
+end
+
+---@return lstg.Mesh.IndexWriter
+function Mesh:createIndexWriter()
+end
+
+--------------------------------------------------------------------------------
 --- 网格操作
 --- Mesh operations
 
@@ -184,7 +333,7 @@ local CreateOptions = {
 --- ```lua
 --- local Mesh = require("lstg.Mesh")
 --- local PrimitiveTopology = require("lstg.PrimitiveTopology")
---- local mesh1 = Mesh.create({
+--- local mesh = Mesh.create({
 ---     vertex_count = 10,
 ---     index_count = 24,
 ---     primitive_topology = PrimitiveTopology.triangle_list,
