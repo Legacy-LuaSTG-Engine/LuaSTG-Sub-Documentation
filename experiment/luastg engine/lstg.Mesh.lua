@@ -1,6 +1,6 @@
 ---@diagnostic disable: missing-return
 
----@class lstg.Mesh
+---@class lstg.experiment.Mesh
 local M = {}
 
 ---@return number
@@ -63,6 +63,6 @@ end
 
 ---@param vertex_count number
 ---@param index_count number
----@return lstg.Mesh
+---@return lstg.experiment.Mesh
 function lstg.MeshData(vertex_count, index_count)
 end
