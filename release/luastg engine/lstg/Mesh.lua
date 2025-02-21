@@ -61,15 +61,52 @@ end
 ---@param vertex_index integer
 ---@param x number
 ---@param y number
+---@param u number
+---@param v number
+---@param color lstg.Color
+---@return lstg.Mesh
+function Mesh:setVertex(vertex_index, x, y, u, v, color)
+end
+
+--- 设置顶点数据  
+--- 以下情况会抛出错误：  
+--- * 顶点索引（`vertex_index`）超出范围  
+--- * 网格对象处于只读状态  
+---@see lstg.Mesh.setPosition
+---@see lstg.Mesh.setUv
+---@see lstg.Mesh.setColor
+---@param vertex_index integer
+---@param x number
+---@param y number
 ---@param z number
 ---@param u number
 ---@param v number
 ---@param r number
 ---@param g number
 ---@param b number
----@param a number?
+---@param a number
 ---@return lstg.Mesh
 function Mesh:setVertex(vertex_index, x, y, z, u, v, r, g, b, a)
+end
+
+--- 设置顶点数据  
+--- 以下情况会抛出错误：  
+--- * 顶点索引（`vertex_index`）超出范围  
+--- * 网格对象处于只读状态  
+---@see lstg.Mesh.setPosition
+---@see lstg.Mesh.setUv
+---@see lstg.Mesh.setColor
+---@param vertex_index integer
+---@param x number
+---@param y number
+---@param u number
+---@param v number
+---@param r number
+---@param g number
+---@param b number
+---@param a number
+---@return lstg.Mesh
+function Mesh:setVertex(vertex_index, x, y, u, v, r, g, b, a)
 end
 
 --- 设置顶点位置坐标  
@@ -159,6 +196,7 @@ end
 
 --- 提交内容到图形设备（显卡/显示适配器）  
 --- 注意：对于只读状态的网格，调用该成员函数会抛出错误  
+---@return boolean
 function Mesh:commit()
 end
 
