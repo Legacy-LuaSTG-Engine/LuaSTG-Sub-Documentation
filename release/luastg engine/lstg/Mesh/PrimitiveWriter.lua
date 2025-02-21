@@ -165,11 +165,11 @@ end
 --- local white = lstg.Color(255, 255, 255, 255)
 --- local writer = mesh:createPrimitiveWriter()
 --- writer
----     :triangle()
+---     :beginTriangle()
 ---         :vertex():position(0.0， 1.0):uv(0.0, 0.0):color(white)
 ---         :vertex():position(1.0， 1.0):uv(1.0, 0.0):color(white)
 ---         :vertex():position(0.0， 0.0):uv(0.0, 1.0):color(white)
----     :triangle()
+---     :beginTriangle()
 ---         :vertex():position(0.0， 0.0):uv(0.0, 1.0):color(white)
 ---         :vertex():position(1.0， 1.0):uv(1.0, 0.0):color(white)
 ---         :vertex():position(1.0， 0.0):uv(1.0, 1.0):color(white)
@@ -186,7 +186,7 @@ end
 --- (0.0, 0.0) +-----+--> X
 --- ```
 ---@return lstg.Mesh.PrimitiveWriter
-function PrimitiveWriter:triangle()
+function PrimitiveWriter:beginTriangle()
 end
 
 --- 开始一个新的四边形  
@@ -199,7 +199,7 @@ end
 --- local white = lstg.Color(255, 255, 255, 255)
 --- local writer = mesh:createPrimitiveWriter()
 --- writer
----     :quad()
+---     :beginQuad()
 ---         :vertex():position(0.0， 1.0):uv(0.0, 0.0):color(white)
 ---         :vertex():position(1.0， 1.0):uv(1.0, 0.0):color(white)
 ---         :vertex():position(1.0， 0.0):uv(1.0, 1.0):color(white)
@@ -218,7 +218,7 @@ end
 --- ```
 --- 
 ---@return lstg.Mesh.PrimitiveWriter
-function PrimitiveWriter:quad()
+function PrimitiveWriter:beginQuad()
 end
 
 --------------------------------------------------------------------------------
@@ -347,19 +347,19 @@ end
 --- ```lua
 --- local writer = ...
 --- writer
----     :triangle()
+---     :beginTriangle()
 ---         :vertex():position(0.0， 1.0):uv(0.0, 0.0):color(white)
 ---         :vertex():position(1.0， 1.0):uv(1.0, 0.0):color(white)
 ---         :vertex():position(0.0， 0.0):uv(0.0, 1.0):color(white)
 ---     :execute(function()
 ---         for x = 2, 10 do
----             writer:triangle()
+---             writer:beginTriangle()
 ---                 :vertex():position(0.0 + x， 1.0):uv(0.0, 0.0):color(white)
 ---                 :vertex():position(1.0 + x， 1.0):uv(1.0, 0.0):color(white)
 ---                 :vertex():position(0.0 + x， 0.0):uv(0.0, 1.0):color(white)
 ---         end
 ---     end)
----     :triangle()
+---     :beginTriangle()
 ---         :vertex():position(0.0， -1.0):uv(0.0, 0.0):color(white)
 ---         :vertex():position(1.0， -1.0):uv(1.0, 0.0):color(white)
 ---         :vertex():position(0.0， -0.0):uv(0.0, 1.0):color(white)
