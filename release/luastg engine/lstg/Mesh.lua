@@ -182,6 +182,13 @@ local CreateOptions = {
     ---@type integer?
     index_count = 0,
 
+    --- 是否开启顶点索引压缩  
+    --- 默认情况下，开启顶点索引压缩  
+    --- 未开启时，使用 32 位整数作为顶点索引  
+    --- 开启后，使用 16 位整数作为顶点索引，此时 `vertex_count` 最大值为 65536  
+    ---@type boolean?
+    vertex_index_compression = true;
+
     --- 是否开启顶点颜色压缩  
     --- 默认情况下，开启顶点颜色压缩  
     --- 未开启时，使用 R32G32B32A32 FLOAT 格式储存顶点颜色  
