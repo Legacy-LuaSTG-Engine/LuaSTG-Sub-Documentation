@@ -82,7 +82,7 @@ end
 function VertexWriter:position(x, y, z)
 end
 
----@see lstg.Mesh.setTextureCoordinates
+---@see lstg.Mesh.setUv
 ---@param u number
 ---@param v number
 ---@return lstg.Mesh.VertexWriter

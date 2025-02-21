@@ -38,7 +38,7 @@ end
 --- * 顶点索引（`vertex_index`）超出范围  
 --- * 网格对象处于只读状态  
 ---@see lstg.Mesh.setPosition
----@see lstg.Mesh.setTextureCoordinates
+---@see lstg.Mesh.setUv
 ---@see lstg.Mesh.setColor
 ---@param vertex_index integer
 ---@param x number
@@ -56,7 +56,7 @@ end
 --- * 顶点索引（`vertex_index`）超出范围  
 --- * 网格对象处于只读状态  
 ---@see lstg.Mesh.setPosition
----@see lstg.Mesh.setTextureCoordinates
+---@see lstg.Mesh.setUv
 ---@see lstg.Mesh.setColor
 ---@param vertex_index integer
 ---@param x number
@@ -92,7 +92,7 @@ end
 ---@param u number 取值范围 [0.0, 1.0]  
 ---@param v number 取值范围 [0.0, 1.0]  
 ---@return lstg.Mesh
-function Mesh:setTextureCoordinates(vertex_index, u, v)
+function Mesh:setUv(vertex_index, u, v)
 end
 
 --- 设置顶点颜色  
