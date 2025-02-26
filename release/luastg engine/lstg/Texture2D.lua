@@ -4,7 +4,7 @@
 --- 类
 --- Class
 
----@class lstg.Texture2D : lstg.GraphicsResource
+---@class lstg.Texture2D
 local M = {}
 
 --------------------------------------------------------------------------------
