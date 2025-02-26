@@ -35,7 +35,7 @@ end
 ---@param r number
 ---@param g number
 ---@param b number
----@param a number?
+---@param a number
 ---@return lstg.Mesh.VertexWriter
 function VertexWriter:vertex(x, y, z, u, v, r, g, b, a)
 end
@@ -48,7 +48,7 @@ end
 ---@param r number
 ---@param g number
 ---@param b number
----@param a number?
+---@param a number
 ---@return lstg.Mesh.VertexWriter
 function VertexWriter:vertex(x, y, u, v, r, g, b, a)
 end
