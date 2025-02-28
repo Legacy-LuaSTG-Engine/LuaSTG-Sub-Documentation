@@ -29,11 +29,11 @@ end
 function MeshRenderer:setRotationYawPitchRoll(yaw, pitch, roll)
 end
 
----@param mesh lstg.Mesh
+---@param mesh lstg.Mesh?
 function MeshRenderer:setMesh(mesh)
 end
 
----@param texture lstg.Texture2D
+---@param texture lstg.Texture2D?
 function MeshRenderer:setTexture(texture)
 end
 
