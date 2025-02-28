@@ -1,5 +1,19 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.100（资源对象化分支）
+    * 图形/渲染
+        * 新增：新增 `lstg.Texture2D` 对象
+        * 修改：在 0.18.4-beta 中引入的实验性对象 `lstg.Mesh` 现已转为正式版本
+        * 废弃：废弃 0.18.4-beta 中的 `lstg.Mesh` 实验性对象构造方法 `lstg.MeshData`
+        * 新增：新增 `lstg.MeshRenderer` 对象
+        * 废弃：废弃 0.18.4-beta 中引入的实验性渲染 API `lstg.RenderMesh`
+
+* LuaSTG Sub v0.21.24
+    * 图形/渲染
+        * 修复：修复加载 truetype 字体时的内存访问越界错误
+* LuaSTG Sub v0.21.23
+    * 图形/渲染
+        * 修复：在引擎初始化时创建的 RenderTarget 资源可能不会跟随窗口大小
 * LuaSTG Sub v0.21.22
     * Lua 拓展库
         * 修复：适配 Steam API 1.61，修复编译失败问题
