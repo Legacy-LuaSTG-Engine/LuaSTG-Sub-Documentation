@@ -3,6 +3,48 @@
 local PrimitiveTopology = require("lstg.PrimitiveTopology")
 
 --------------------------------------------------------------------------------
+--- 迁移指南
+
+-- 在 LuaSTG Sub v0.18.4-beta 中添加了实验性的 lstg.Mesh 对象和渲染方法 lstg.RenderMesh
+-- 在 LuaSTG Sub v0.22.0 中，新的 lstg.Mesh 对象取代了旧版本的实验性对象
+-- 旧版本的对象方法已作兼容性处理，目前版本仍然可以使用，但将会在未来移除
+
+--@param color lstg.Color
+--function M:setAllVertexColor(color)
+--end
+
+--- 设置顶点坐标  
+-- index 是顶点的索引，从 0 开始  
+--@param index number
+--@param x number
+--@param y number
+--@param z number
+--function M:setVertexPosition(index, x, y, z)
+--end
+
+-- 设置顶点纹理坐标  
+-- index 是顶点的索引，从 0 开始  
+-- u, v 是归一化纹理坐标，取值范围 [0.0, 1.0]  
+--@param index number
+--@param u number
+--@param v number
+--function M:setVertexCoords(index, u, v)
+--end
+
+-- 设置顶点纹理坐标  
+-- index 是顶点的索引，从 0 开始  
+--@param index number
+--@param color lstg.Color
+--function M:setVertexColor(index, color)
+--end
+
+--@param vertex_count number
+--@param index_count number
+--@return lstg.experiment.Mesh
+--function lstg.MeshData(vertex_count, index_count)
+--end
+
+--------------------------------------------------------------------------------
 --- 类
 --- Class
 
