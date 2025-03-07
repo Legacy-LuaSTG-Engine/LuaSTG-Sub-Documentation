@@ -1,4 +1,4 @@
----@diagnostic disable: missing-return, unused-local
+---@diagnostic disable: missing-return, unused-local, duplicate-set-field
 
 --------------------------------------------------------------------------------
 --- 类
@@ -57,8 +57,12 @@ end
 --- 静态方法
 --- Static methods
 
----@param x number?
----@param y number?
+---@return lstg.Vector2
+function Vector2.create()
+end
+
+---@param x number
+---@param y number
 ---@return lstg.Vector2
 function Vector2.create(x, y)
 end
