@@ -1,5 +1,19 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.102（资源对象化分支）
+    * 图形/渲染
+        * 新增：新增 `lstg.Sprite` 对象
+        * 新增：新增 `lstg.SpriteRenderer` 对象
+* LuaSTG Sub v0.21.101（资源对象化分支）
+    * 图形/渲染
+        * 新增：新增 `lstg.LoadAnimation` 方法重载，允许使用已有的图片精灵 
+    * 数学
+        * 新增：新增 `lstg.Vector2` 对象
+        * 新增：新增 `lstg.Vector3` 对象
+        * 新增：新增 `lstg.Vector4` 对象
+    * 文件系统
+        * 修改：通过搜索路径定位文件时，按搜索路径添加顺序的倒序遍历搜索路径
+        * 修改：添加搜索路径时，如果重复，不再移除后重新添加，避免影响顺序
 * LuaSTG Sub v0.21.100（资源对象化分支）
     * 图形/渲染
         * 新增：新增 `lstg.Texture2D` 对象

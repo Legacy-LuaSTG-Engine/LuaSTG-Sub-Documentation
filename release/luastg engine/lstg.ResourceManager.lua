@@ -1,3 +1,5 @@
+---@diagnostic disable: duplicate-set-field
+
 --------------------------------------------------------------------------------
 --- LuaSTG Sub 资源管理
 --- 璀境石
@@ -234,21 +236,34 @@ function lstg.SetImageCenter(imgname, x, y)
 end
 
 --- 从纹理加载图片序列  
---- 参考 lstg.LoadImage  
----@param aniname string
----@param texname string
+---@see lstg.LoadImage
+---@param sprite_sequence_name string
+---@param texture_name string
 ---@param x number
 ---@param y number
----@param width number @单张动画宽度
----@param height number @单张动画高度
----@param col number @列数
----@param row number @行数
----@param aniv number @动画播放的间隔(每隔aniv帧播放下一张)
----@param a number
----@param b number
----@param rect boolean
----@overload fun(resname:string, texres:string, x:number, y:number, width:number, height:number, col:number, row:number, aniv:number)
-function lstg.LoadAnimation(aniname, texname, x, y, width, height, col, row, aniv, a, b, rect)
+---@param width number 单张图片宽度
+---@param height number 单张图片高度
+---@param col number 列数
+---@param row number 行数
+---@param interval number 每张图片持续显示的帧数
+---@param a number?
+---@param b number?
+---@param rect boolean?
+function lstg.LoadAnimation(sprite_sequence_name, texture_name, x, y, width, height, col, row, interval, a, b, rect)
+end
+
+--- [LuaSTG Sub v0.21.101 新增]  
+--- 从已有的图片精灵加载图片序列  
+--- 提醒：该方法会复制图片精灵的副本来使用，而不是引用原图片精灵  
+--- 注意：如果要设置渲染中心，必须在加载前将每张图片的渲染中心设置好  
+--- 警告：通过该方法加载的图片序列不应该使用 `lstg.SetAnimationCenter` 方法修改渲染中心  
+---@param sprite_sequence_name string
+---@param sprite_names string[] 图片列表
+---@param interval integer 每张图片持续显示的帧数
+---@param a number?
+---@param b number?
+---@param rect boolean?
+function lstg.LoadAnimation(sprite_sequence_name, sprite_names, interval, a, b, rect)
 end
 
 --- 更改动画渲染时使用的混合模式和顶点颜色  
