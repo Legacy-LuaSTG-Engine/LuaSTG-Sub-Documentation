@@ -19,7 +19,7 @@ end
 ---@param y integer
 ---@param width integer
 ---@param height integer
-function Sprite:setRect(x, y, width, height)
+function Sprite:setTextureRect(x, y, width, height)
 end
 
 ---@param x integer
