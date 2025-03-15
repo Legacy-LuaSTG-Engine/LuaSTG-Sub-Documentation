@@ -38,14 +38,14 @@ function SpriteRenderer:setSprite(sprite)
 end
 
 ---@param color lstg.Color
-function SpriteRenderer:setBlendColor(color)
+function SpriteRenderer:setColor(color)
 end
 
 ---@param c1 lstg.Color
 ---@param c2 lstg.Color
 ---@param c3 lstg.Color
 ---@param c4 lstg.Color
-function SpriteRenderer:setBlendColor(c1, c2, c3, c4)
+function SpriteRenderer:setColor(c1, c2, c3, c4)
 end
 
 ---@param blend lstg.BlendMode
