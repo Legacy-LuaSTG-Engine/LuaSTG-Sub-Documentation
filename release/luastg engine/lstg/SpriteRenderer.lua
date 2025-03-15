@@ -17,7 +17,7 @@ function SpriteRenderer:setPosition(x, y)
 end
 
 ---@param x number
----@param y number
+---@param y number?
 function SpriteRenderer:setScale(x, y)
 end
 
