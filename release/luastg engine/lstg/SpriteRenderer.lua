@@ -25,14 +25,6 @@ end
 function SpriteRenderer:setRotation(r)
 end
 
----@param x number
----@param y number
----@param rot number
----@param hscale number
----@param vscale number
-function SpriteRenderer:setTransform2D(x, y, rot, hscale, vscale)
-end
-
 ---@param sprite lstg.Sprite
 function SpriteRenderer:setSprite(sprite)
 end
