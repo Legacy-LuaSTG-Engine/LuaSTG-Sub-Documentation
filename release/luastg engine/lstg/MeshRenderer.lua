@@ -50,6 +50,10 @@ end
 function MeshRenderer:setTexture(texture)
 end
 
+---@param blend lstg.BlendMode
+function MeshRenderer:setLegacyBlendState(blend)
+end
+
 --------------------------------------------------------------------------------
 --- 绘制
 --- Draw
