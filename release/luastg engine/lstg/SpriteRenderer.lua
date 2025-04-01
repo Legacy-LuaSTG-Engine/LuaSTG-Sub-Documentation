@@ -4,7 +4,7 @@
 --- 类
 --- Class
 
----@class lstg.SpriteRenderer
+---@class lstg.SpriteRenderer : lstg.Renderer
 local SpriteRenderer = {}
 
 --------------------------------------------------------------------------------

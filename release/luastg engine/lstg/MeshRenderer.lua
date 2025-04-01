@@ -17,7 +17,7 @@
 --- 类
 --- Class
 
----@class lstg.MeshRenderer
+---@class lstg.MeshRenderer : lstg.Renderer
 local MeshRenderer = {}
 
 --------------------------------------------------------------------------------
