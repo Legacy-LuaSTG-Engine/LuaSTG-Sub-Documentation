@@ -3,9 +3,9 @@
 --- 璀境石
 --------------------------------------------------------------------------------
 
+---@diagnostic disable-next-line: lowercase-global
 ---@class lstg
-local M = {}
-lstg = M
+lstg = {}
 
 --------------------------------------------------------------------------------
 --- 命令行参数  
@@ -21,7 +21,7 @@ lstg = M
 --- 命令行参数  
 --- Command line arguments  
 ---@type string[]
-M.args = {}
+lstg.args = {}
 
 --------------------------------------------------------------------------------
 --- 游戏循环流程
@@ -65,4 +65,20 @@ end
 function FocusGainFunc()
 end
 
-return M
+require("lstg_AudioSystem")
+require("lstg_Color")
+require("lstg_CurveLaser")
+require("lstg_DegreesMath")
+require("lstg_FileManager")
+require("lstg_Framework")
+require("lstg_GameObject")
+require("lstg_GameObjectManager")
+require("lstg_Input")
+require("lstg_ParticleSystem")
+require("lstg_Platform")
+require("lstg_Rand")
+require("lstg_Renderer")
+require("lstg_ResourceManager")
+require("lstg_StopWatch")
+
+return lstg
