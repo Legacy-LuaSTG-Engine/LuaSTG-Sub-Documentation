@@ -17,9 +17,13 @@ end
 function lstg.ResetPool()
 end
 
----【禁止在协同程序中调用此方法】
----更新所有游戏对象并触发游戏对象的frame回调函数
-function lstg.ObjFrame()
+--- 【禁止在协同程序中调用此方法】  
+--- 更新所有游戏对象并触发游戏对象的frame回调函数  
+--- 从 LuaSTG Sub v0.21.13（第二代游戏循环更新顺序）开始，可以传递版本参数 `version`：  
+--- * 不传递 `version` 参数或参数为 1 时，遵循旧逻辑  
+--- * `version` 参数或参数为 2 时，启用新逻辑  
+---@param version integer?
+function lstg.ObjFrame(version)
 end
 
 ---【禁止在协同程序中调用此方法】
@@ -27,9 +31,13 @@ end
 function lstg.ObjRender()
 end
 
----【禁止在协同程序中调用此方法】  
---- 对所有游戏对象进行出界判断，如果离开场景边界，将会触发对象的 del 回调函数  
-function lstg.BoundCheck()
+--- 【禁止在协同程序中调用此方法】  
+---  对所有游戏对象进行出界判断，如果离开场景边界，将会触发对象的 del 回调函数  
+--- 从 LuaSTG Sub v0.21.13（第二代游戏循环更新顺序）开始，可以传递版本参数 `version`：  
+--- * 不传递 `version` 参数或参数为 1 时，遵循旧逻辑  
+--- * `version` 参数或参数为 2 时，启用新逻辑  
+---@param version integer?
+function lstg.BoundCheck(version)
 end
 
 --- [LuaSTG Sub v0.17.0 修改]  
@@ -50,14 +58,20 @@ end
 function lstg.CollisionCheck(groupidA, groupidB)
 end
 
----【禁止在协同程序中调用此方法】
----保存游戏对象的x, y坐标并计算dx, dy
+--- 【禁止在协同程序中调用此方法】  
+--- 保存游戏对象的x, y坐标并计算dx, dy  
+--- 从 LuaSTG Sub v0.21.13（第二代游戏循环更新顺序）开始，如果启用新逻辑，  
+--- 请勿调用 `lstg.UpdateXY` 方法，相关逻辑已合并到 `lstg.AfterFrame` 中  
 function lstg.UpdateXY()
 end
 
----【禁止在协同程序中调用此方法】
----增加游戏对象的timer, ani计数器，如果对象被标记为kill或者del，则回收该对象
-function lstg.AfterFrame()
+--- 【禁止在协同程序中调用此方法】  
+--- 增加游戏对象的timer, ani计数器，如果对象被标记为kill或者del，则回收该对象  
+--- 从 LuaSTG Sub v0.21.13（第二代游戏循环更新顺序）开始，可以传递版本参数 `version`：  
+--- * 不传递 `version` 参数或参数为 1 时，遵循旧逻辑  
+--- * `version` 参数或参数为 2 时，启用新逻辑  
+---@param version integer?
+function lstg.AfterFrame(version)
 end
 
 --------------------------------------------------------------------------------
