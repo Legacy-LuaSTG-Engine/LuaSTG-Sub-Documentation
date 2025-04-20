@@ -1,5 +1,10 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.103（资源对象化分支）
+    * 窗口
+        * 新增：新增 `lstg.Clipboard` 对象，用于读取或写入剪贴板（有可能会被杀毒软件误报）
+    * 图形/渲染
+        * 修复：（可能包含破坏性更改）修复 `lstg.RenderClear` 的颜色没有正确处理预乘 alpha 的问题
 * LuaSTG Sub v0.21.102（资源对象化分支）
     * 图形/渲染
         * 新增：新增 `lstg.Sprite` 对象
