@@ -1,5 +1,8 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.104（资源对象化分支）
+    * 文件系统
+        * 新增：新增实验性对象 `lstg.FileSystemWatcher` 用于监听文件夹下的文件修改
 * LuaSTG Sub v0.21.103（资源对象化分支）
     * 窗口
         * 新增：新增 `lstg.Clipboard` 对象，用于读取或写入剪贴板（有可能会被杀毒软件误报）
