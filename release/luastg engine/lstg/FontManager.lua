@@ -1,6 +1,23 @@
 ---@diagnostic disable: missing-return, unused-local
 
 --- 字体管理器：字体注册中心  
+--- 
+--- 字体管理器按字体族-字体变体的树状结构管理所有字体，例如：  
+---  
+--- * 新宋体  
+---     * 常规  
+--- * 微软雅黑  
+---     * 常规  
+---     * 粗体  
+---     * 细体  
+--- * Cascadia Mono  
+---     * 常规  
+---     * 斜体  
+---     * 粗体  
+---     * 粗体斜体  
+--- 
+--- 已注册的字体可以在 `lstg.TextLayout` 中使用，在指定了
+--- 字体族名称、字重等参数后，字体管理器会自动匹配最符合的字体。  
 ---@class lstg.FontManager
 local FontManager = {}
 
