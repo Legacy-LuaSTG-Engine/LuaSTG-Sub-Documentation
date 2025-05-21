@@ -1,4 +1,4 @@
----@diagnostic disable: missing-return
+---@diagnostic disable: missing-return, unused-local
 
 --------------------------------------------------------------------------------
 --- 类
@@ -31,7 +31,14 @@ end
 ---@param path string  
 ---@param mipmap_levels integer?
 ---@return lstg.Texture2D
-function M.createFromFile(path, mipmap_levels)
+function M.loadFromFile(path, mipmap_levels)
+end
+
+M.createFromFile = M.loadFromFile
+
+---@param image lstg.Image
+---@return lstg.Texture2D
+function M.createFromImage(image)
 end
 
 return M
