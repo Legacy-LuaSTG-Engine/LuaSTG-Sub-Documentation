@@ -1,5 +1,38 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.109
+    * 窗口
+        注意：由于 Windows 的限制，本次更新后，引擎启动创建窗口时会短暂显示白色背景，目前暂时没有解决方案，如果你对此有疑问，请咨询和反馈给微软公司！
+        * 修复：修复引擎启动后窗口失去焦点、窗口不在顶层等问题
+* LuaSTG Sub v0.21.108
+    * 引擎基础
+        * 更新：更新 `lua-cjson` 库到 v2.1.0.14，修复高危漏洞
+        * 更新：更新 `imgui` 库到 v1.92.1，支持最新的字体渲染逻辑
+* LuaSTG Sub v0.21.107
+    * 游戏对象
+        * 修复：修复由上一个版本的修改导致的崩溃
+    * 音频
+        * 修复：修复同一帧多次播放、暂停、恢复、停止同一个音效的处理逻辑
+* LuaSTG Sub v0.21.106
+    * 游戏对象
+        * 修改：优化游戏对象内存布局，减少内存占用
+        * 修改：优化游戏对象碰撞体包围盒的更新计算
+        * 修改：优化游戏对象碰撞检测的逻辑
+        * 修改：优化 `lstg.ObjList` 遍历游戏对象的速度，接入 luajit ffi 加速
+        * 修改：使 `lstg.Dist` 和 `lstg.Angle` 更加通用，只要传入的对象有 `x`、`y` 属性即可参与计算，不再局限于游戏对象
+        * 修改：优化 `lstg.Dist` 和 `lstg.Angle`，接入 luajit ffi 加速
+        * 修改：使 `lstg.SetV` 和 `lstg.GetV` 更加通用，只要传入的对象有 `vx`、`vy`、`rot` 属性即可参与计算，不再局限于游戏对象
+        * 修改：优化 `lstg.SetV` 和 `lstg.GetV`，接入 luajit ffi 加速
+        * 移除：由于设计上存在各种问题且难以维护，因此移除多 world 功能，涉及的 API：
+            * 游戏对象属性：`world`
+            * API：`lstg.GetWorldFlag`
+            * API：`lstg.SetWorldFlag`
+            * API：`lstg.IsInWorld`
+            * API：`lstg.IsSameWorld`
+            * API：`lstg.ActiveWorlds`
+            * API：`lstg.GetCurrentObject`
+    * 数学
+        * 修改：随机数发生器 `lstg.Rand` 的 `Int` 方法加入参数校验，限制随机区间不得大于 2147483647，避免除以 0 导致引擎崩溃
 * LuaSTG Sub v0.21.105（资源对象化分支）
     * 文件系统
         * 修复：修复带密码的压缩包加载后无法读取其中的文件的问题
