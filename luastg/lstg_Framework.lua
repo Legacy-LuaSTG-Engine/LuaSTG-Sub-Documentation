@@ -144,6 +144,13 @@ function lstg.EnumGPUs()
     return { "Intel XXXX", "NVIDIA YYYY", "AMD ZZZZ" }
 end
 
+--- [LuaSTG Sub v0.19.5 新增]
+--- 运行时切换使用的显卡  
+--- 警告：如果在游戏内设置界面提供切换显卡的功能，请务必提醒用户可能会耗费很长时间！  
+---@param gpu string
+function lstg.ChangeGPU(gpu)
+end
+
 --- [LuaSTG Sub 修改]  
 --- 指定画面显示方式：画布分辨率（渲染分辨率）、全屏、垂直同步  
 --- 渲染分辨率可以不等于窗口分辨率，窗口大小可以自由调整，引擎会自动缩放显示画面  
