@@ -189,6 +189,14 @@ M.RemoveResource = ResourceManager.RemoveResource
 M.CheckRes = ResourceManager.CheckRes
 M.EnumRes = ResourceManager.EnumRes
 
+M.LoadTexture = ResourceManager.LoadTexture
+M.CreateRenderTarget = ResourceManager.CreateRenderTarget
+M.IsRenderTarget = ResourceManager.IsRenderTarget
+M.GetTextureSize = ResourceManager.GetTextureSize
+M.SaveTexture = ResourceManager.SaveTexture
+M.Snapshot = ResourceManager.Snapshot
+M.SetTextureSamplerState = ResourceManager.SetTextureSamplerState
+
 M.LoadImage = ResourceManager.LoadImage
 M.SetImageState = ResourceManager.SetImageState
 M.SetImageCenter = ResourceManager.SetImageCenter
