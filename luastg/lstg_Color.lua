@@ -82,9 +82,6 @@ end
 --- 构造函数
 --- Constructor
 
----@class lstg
-lstg = lstg or {}
-
 ---@see lstg.Color.argb
 ---@param argb number
 ---@return lstg.Color
