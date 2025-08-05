@@ -384,4 +384,27 @@ end
 function M.LoadModel(modname, gltfpath)
 end
 
+--------------------------------------------------------------------------------
+--- 实验性 API
+
+---@class lstg.ResourceManager
+local ResourceManager = {}
+
+M.ResourceManager = ResourceManager
+
+---@param name lstg.ResourcePoolType
+---@return lstg.ResourceCollection
+function ResourceManager.getResourceCollection(name)
+    ---@diagnostic disable-next-line: missing-return
+end
+
+---@param name lstg.ResourcePoolType
+function ResourceManager.setCurrentResourceCollection(name)
+end
+
+---@return lstg.ResourcePoolType
+function ResourceManager.getCurrentResourceCollection()
+    ---@diagnostic disable-next-line: missing-return
+end
+
 return M

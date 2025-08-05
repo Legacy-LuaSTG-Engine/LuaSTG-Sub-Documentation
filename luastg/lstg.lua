@@ -176,6 +176,10 @@ M.ActiveWorlds = GameObjectManager.ActiveWorlds
 
 --------------------------------------------------------------------------------
 
+require("legacy.ResourceTexture")
+require("legacy.ResourceSprite")
+require("legacy.ResourceSpriteSequence")
+require("legacy.ResourceCollection")
 local ResourceManager = require("legacy.ResourceManager")
 
 M.SetResLoadInfo = ResourceManager.SetResLoadInfo
@@ -212,6 +216,8 @@ M.LoadMusic = ResourceManager.LoadMusic
 M.LoadFX = ResourceManager.LoadFX
 
 M.LoadModel = ResourceManager.LoadModel
+
+M.ResourceManager = ResourceManager.ResourceManager
 
 --------------------------------------------------------------------------------
 
