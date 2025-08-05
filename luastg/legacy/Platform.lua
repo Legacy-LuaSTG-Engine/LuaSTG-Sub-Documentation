@@ -4,6 +4,8 @@
 
 ---@diagnostic disable: missing-return
 
+local M = {}
+
 --------------------------------------------------------------------------------
 --- Win32 API
 
@@ -20,7 +22,7 @@
 ---@overload fun(path:string, arg :string):boolean
 ---@overload fun(path:string, arg :string, workingdir:string):boolean
 ---@overload fun(path:string, arg :string, workingdir:string, wait:boolean):boolean
-function lstg.Execute(path, arg, workingdir, wait, show)
+function M.Execute(path, arg, workingdir, wait, show)
 end
 
 --- 注意：该 API 未来可能会被移除，并作为 Windows 平台拓展提供
@@ -28,5 +30,7 @@ end
 ---@param text string
 ---@param flags number
 ---@return number
-function lstg.MessageBox(title, text, flags)
+function M.MessageBox(title, text, flags)
 end
+
+return M

@@ -29,7 +29,11 @@ end
 function stopwatch:GetElapsed()
 end
 
+local M = {}
+
 ---构造高精度微秒级计时器
 ---@return lstg.StopWatch
-function lstg.StopWatch()
+function M.StopWatch()
 end
+
+return M

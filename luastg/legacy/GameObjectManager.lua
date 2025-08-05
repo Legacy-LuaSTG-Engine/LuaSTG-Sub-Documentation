@@ -5,16 +5,26 @@
 
 ---@diagnostic disable: missing-return
 
+local M = {}
+
 --------------------------------------------------------------------------------
 --- 游戏对象管理器
 
 ---获取申请的对象数
 ---@return number
-function lstg.GetnObj()
+function M.GetnObj()
+end
+
+---@alias lstg.ObjList.Next fun(group_id:number, object_id:number):number, lstg.GameObject
+
+--- 游戏对象迭代器，如果填写的碰撞组不是有效的碰撞组，则对所有游戏对象进行迭代
+---@param group_id number
+---@return lstg.ObjList.Next, number, number
+function M.ObjList(group_id)
 end
 
 ---回收所有对象，并释放绑定的资源
-function lstg.ResetPool()
+function M.ResetPool()
 end
 
 --- 【禁止在协同程序中调用此方法】  
@@ -23,12 +33,12 @@ end
 --- * 不传递 `version` 参数或参数为 1 时，遵循旧逻辑  
 --- * `version` 参数或参数为 2 时，启用新逻辑  
 ---@param version integer?
-function lstg.ObjFrame(version)
+function M.ObjFrame(version)
 end
 
 ---【禁止在协同程序中调用此方法】
 ---绘制所有游戏对象并触发游戏对象的render回调函数
-function lstg.ObjRender()
+function M.ObjRender()
 end
 
 --- 【禁止在协同程序中调用此方法】  
@@ -37,7 +47,7 @@ end
 --- * 不传递 `version` 参数或参数为 1 时，遵循旧逻辑  
 --- * `version` 参数或参数为 2 时，启用新逻辑  
 ---@param version integer?
-function lstg.BoundCheck(version)
+function M.BoundCheck(version)
 end
 
 --- [LuaSTG Sub v0.17.0 修改]  
@@ -47,7 +57,7 @@ end
 ---@param right number
 ---@param bottom number
 ---@param top number
-function lstg.SetBound(left, right, bottom, top)
+function M.SetBound(left, right, bottom, top)
 end
 
 ---【禁止在协同程序中调用此方法】  
@@ -55,14 +65,14 @@ end
 --- 如果发生碰撞则触发groupidA内的对象的colli回调函数，并传入groupidB内的对象作为参数
 ---@param groupidA number @只能为0到15范围内的整数
 ---@param groupidB number @只能为0到15范围内的整数
-function lstg.CollisionCheck(groupidA, groupidB)
+function M.CollisionCheck(groupidA, groupidB)
 end
 
 --- 【禁止在协同程序中调用此方法】  
 --- 保存游戏对象的x, y坐标并计算dx, dy  
 --- 从 LuaSTG Sub v0.21.13（第二代游戏循环更新顺序）开始，如果启用新逻辑，  
 --- 请勿调用 `lstg.UpdateXY` 方法，相关逻辑已合并到 `lstg.AfterFrame` 中  
-function lstg.UpdateXY()
+function M.UpdateXY()
 end
 
 --- 【禁止在协同程序中调用此方法】  
@@ -71,7 +81,7 @@ end
 --- * 不传递 `version` 参数或参数为 1 时，遵循旧逻辑  
 --- * `version` 参数或参数为 2 时，启用新逻辑  
 ---@param version integer?
-function lstg.AfterFrame(version)
+function M.AfterFrame(version)
 end
 
 --------------------------------------------------------------------------------
@@ -81,26 +91,26 @@ end
 ---@param class lstg.Class
 ---@vararg any
 ---@return lstg.GameObject
-function lstg.New(class, ...)
+function M.New(class, ...)
 end
 
 --- 触发指定游戏对象的del回调函数，并将该对象标记为del状态，剩余参数将传递给del回调函数
 ---@param unit lstg.GameObject
 ---@vararg any
-function lstg.Del(unit, ...)
+function M.Del(unit, ...)
 end
 
 --- 触发指定游戏对象的kill回调函数，并将该对象标记为kill状态，剩余参数将传递给kill回调函数
 ---@param unit lstg.GameObject
 ---@vararg any
-function lstg.Kill(unit, ...)
+function M.Kill(unit, ...)
 end
 
 --- 检查指定游戏对象的引用是否有效，如果返回假，则该对象已经被对象池回收或不是 有效的lstg.GameObject对象；
 --- unit参数可以是任何值，因此也可以用来判断传入的参数 是否是游戏对象
 ---@param unit any
 ---@return boolean
-function lstg.IsValid(unit)
+function M.IsValid(unit)
 end
 
 --------------------------------------------------------------------------------
@@ -113,22 +123,14 @@ end
 ---@param bottom number
 ---@param top number
 ---@return boolean
-function lstg.BoxCheck(unit, left, right, bottom, top)
+function M.BoxCheck(unit, left, right, bottom, top)
 end
 
 --- 检查两个对象是否发生碰撞
 ---@param unitA lstg.GameObject
 ---@param unitB lstg.GameObject
 ---@param ignoreworldmask boolean @如果该参数为true，则忽略world掩码
-function lstg.ColliCheck(unitA, unitB, ignoreworldmask)
-end
-
----@alias lstg.ObjList.Next fun(groupid:number, objid:number):number, lstg.GameObject
-
---- 碰撞组迭代器，如果填写的碰撞组不是有效的碰撞组，则对所有游戏对象进行迭代
----@param groupid number
----@return lstg.ObjList.Next, number, number
-function lstg.ObjList(groupid)
+function M.ColliCheck(unitA, unitB, ignoreworldmask)
 end
 
 --------------------------------------------------------------------------------
@@ -138,13 +140,13 @@ end
 ---@param t lstg.GameObject
 ---@param k number|string
 ---@param v any
-function lstg.SetAttr(t, k, v)
+function M.SetAttr(t, k, v)
 end
 
 --- 获取游戏对象上某些属性的值
 ---@param t lstg.GameObject
 ---@param k number|string
-function lstg.GetAttr(t, k)
+function M.GetAttr(t, k)
 end
 
 --------------------------------------------------------------------------------
@@ -155,12 +157,12 @@ end
 ---@param v number
 ---@param a number
 ---@param updaterot boolean @如果该参数为true，则同时设置对象的rot
-function lstg.SetV(unit, v, a, updaterot)
+function M.SetV(unit, v, a, updaterot)
 end
 
 ---@param unit lstg.GameObject
 ---@return number, number @速度大小，速度朝向
-function lstg.GetV(unit)
+function M.GetV(unit)
 end
 
 --- 计算向量的朝向，可以以以下的组合方式填写参数：
@@ -175,7 +177,7 @@ end
 ---@param x2 lstg.GameObject|number|nil
 ---@param y2 number|nil
 ---@return number
-function lstg.Angle(x1, y1, x2, y2)
+function M.Angle(x1, y1, x2, y2)
 end
 
 --- 计算向量的模，可以以以下的组合方式填写参数：
@@ -190,7 +192,7 @@ end
 ---@param x2 lstg.GameObject|number|nil
 ---@param y2 number|nil
 ---@return number
-function lstg.Dist(x1, y1, x2, y2)
+function M.Dist(x1, y1, x2, y2)
 end
 
 --------------------------------------------------------------------------------
@@ -203,12 +205,12 @@ end
 ---@param r number @[0~255]
 ---@param g number @[0~255]
 ---@param b number @[0~255]
-function lstg.SetImgState(unit, blend, a, r, g, b)
+function M.SetImgState(unit, blend, a, r, g, b)
 end
 
 --- 执行游戏对象默认渲染方法
 ---@param unit lstg.GameObject
-function lstg.DefaultRenderFunc(unit)
+function M.DefaultRenderFunc(unit)
 end
 
 --------------------------------------------------------------------------------
@@ -221,35 +223,35 @@ end
 ---@param r number @[0~255]
 ---@param g number @[0~255]
 ---@param b number @[0~255]
-function lstg.SetParState(unit, blend, a, r, g, b)
+function M.SetParState(unit, blend, a, r, g, b)
 end
 
 --- 停止游戏对象上的粒子发射器
 ---@param unit lstg.GameObject
-function lstg.ParticleStop(unit)
+function M.ParticleStop(unit)
 end
 
 --- 启动游戏对象上的粒子发射器
 ---@param unit lstg.GameObject
-function lstg.ParticleFire(unit)
+function M.ParticleFire(unit)
 end
 
 --- 获取游戏对象上的粒子发射器的粒子数量
 ---@param unit lstg.GameObject
 ---@return number
-function lstg.ParticleGetn(unit)
+function M.ParticleGetn(unit)
 end
 
 --- 设置粒子发射器的粒子发射密度
 ---@param unit lstg.GameObject
 ---@param emission number @每秒发射的粒子数量
-function lstg.ParticleSetEmission(unit, emission)
+function M.ParticleSetEmission(unit, emission)
 end
 
 --- 获取粒子发射器的粒子发射密度
 ---@param unit lstg.GameObject
 ---@return number @每秒发射的粒子数量
-function lstg.ParticleGetEmission(unit)
+function M.ParticleGetEmission(unit)
 end
 
 --------------------------------------------------------------------------------
@@ -258,21 +260,21 @@ end
 
 --- 设置游戏对象池下一帧开始暂停更新的时间（帧）
 ---@param t number
-function lstg.SetSuperPause(t)
+function M.SetSuperPause(t)
 end
 
 --- 更改游戏对象池下一帧开始暂停更新的时间（帧），等效于GetSuperPause并加上t，然后SetSuperPause
 ---@param t number
-function lstg.AddSuperPause(t)
+function M.AddSuperPause(t)
 end
 
 --- 获取游戏对象池暂停更新的时间（帧），获取的是下一帧的
 ---@return number
-function lstg.GetSuperPause()
+function M.GetSuperPause()
 end
 
 --- 获取当前帧游戏对象池暂停更新的时间（帧）
-function lstg.GetCurrentSuperPause()
+function M.GetCurrentSuperPause()
 end
 
 --------------------------------------------------------------------------------
@@ -302,26 +304,26 @@ end
 
 --- 设置当前激活的world掩码
 ---@param mask number
-function lstg.SetWorldFlag(mask)
+function M.SetWorldFlag(mask)
 end
 
 --- 获取当前激活的 world 掩码
 ---@return number
-function lstg.GetWorldFlag()
+function M.GetWorldFlag()
 end
 
 --- 检查两个 world 掩码是否存在交叠的部分
 ---@param maskA number
 ---@param maskB number
 ---@return boolean
-function lstg.IsInWorld(maskA, maskB)
+function M.IsInWorld(maskA, maskB)
 end
 
 --- 根据 ActiveWorlds 设置的多 world 掩码，判断两个对象是否在同一个 world 内
 ---@param maskA number
 ---@param maskB number
 ---@return boolean
-function lstg.IsSameWorld(maskA, maskB)
+function M.IsSameWorld(maskA, maskB)
 end
 
 --- 设置多 world 的掩码，最多可支持 4 个不同的掩码，将会在进行碰撞检测的时候用到
@@ -329,5 +331,7 @@ end
 ---@param maskB number
 ---@param maskC number
 ---@param maskD number
-function lstg.ActiveWorlds(maskA, maskB, maskC, maskD)
+function M.ActiveWorlds(maskA, maskB, maskC, maskD)
 end
+
+return M

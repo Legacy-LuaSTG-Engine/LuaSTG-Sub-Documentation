@@ -48,6 +48,8 @@ local example_hlsl = [[
 ]]
 
 local function example()
+    local lstg = require("lstg")
+
     -- create
 
     lstg.CreateRenderTarget("rt:background")
@@ -112,12 +114,14 @@ end
 function PostEffectShader:setFloat4(name, x, y, z, w)
 end
 
+local M = {}
+
 --------------------------------------------------------------------------------
 --- create
 
 ---@param file_path string
 ---@return lstg.PostEffectShader
-function lstg.CreatePostEffectShader(file_path)
+function M.CreatePostEffectShader(file_path)
 end
 
 --------------------------------------------------------------------------------
@@ -126,5 +130,7 @@ end
 ---@param post_effect_shader lstg.PostEffectShader
 ---@param blend lstg.BlendMode
 ---@overload fun(fxname:string, texname:string, samplerstate:number, blendmode:lstg.BlendMode, floatbuffer:number[][], texparam:string[][])
-function lstg.PostEffect(post_effect_shader, blend)
+function M.PostEffect(post_effect_shader, blend)
 end
+
+return M

@@ -5,6 +5,8 @@
 
 ---@diagnostic disable: missing-return
 
+local M = {}
+
 --------------------------------------------------------------------------------
 --- 移植指南
 
@@ -17,29 +19,31 @@
 
 ---@param v number
 ---@return number
-function lstg.sin(v) end
+function M.sin(v) end
 
 ---@param v number
 ---@return number
-function lstg.cos(v) end
+function M.cos(v) end
 
 ---@param v number
 ---@return number
-function lstg.asin(v) end
+function M.asin(v) end
 
 ---@param v number
 ---@return number
-function lstg.acos(v) end
+function M.acos(v) end
 
 ---@param v number
 ---@return number
-function lstg.tan(v) end
+function M.tan(v) end
 
 ---@param v number
 ---@return number
-function lstg.atan(v) end
+function M.atan(v) end
 
 ---@param y number
 ---@param x number
 ---@return number
-function lstg.atan2(y, x) end
+function M.atan2(y, x) end
+
+return M

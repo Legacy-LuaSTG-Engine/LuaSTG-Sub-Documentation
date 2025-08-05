@@ -41,7 +41,11 @@ end
 function random:Sign()
 end
 
+local M = {}
+
 ---构造随机数发生器对象
 ---@return lstg.Rand
-function lstg.Rand()
+function M.Rand()
 end
+
+return M

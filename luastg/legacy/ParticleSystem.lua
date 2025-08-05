@@ -341,8 +341,12 @@ end
 --------------------------------------------------------------------------------
 --- 创建
 
+local M = {}
+
 --- 从粒子系统资源 ps_name 创建粒子系统实例
 ---@param ps_name string
 ---@return lstg.ParticleSystem
-function lstg.ParticleSystemData(ps_name)
+function M.ParticleSystemData(ps_name)
 end
+
+return M
