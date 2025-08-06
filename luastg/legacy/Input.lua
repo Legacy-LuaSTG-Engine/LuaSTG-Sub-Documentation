@@ -5,6 +5,8 @@
 
 ---@diagnostic disable: missing-return
 
+local M = {}
+
 --------------------------------------------------------------------------------
 --- 移植指南
 --- porting guide
@@ -51,13 +53,13 @@
 --- Get keyboard key state  
 ---@param vkey number https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
 ---@return boolean
-function lstg.GetKeyState(vkey)
+function M.GetKeyState(vkey)
 end
 
 --- 以窗口左下角为原点，x 轴向右，y 轴向上  
 --- Bottom-left of the window as the origin, the x-axis is to the right, and the y-axis is up  
 ---@return number, number
-function lstg.GetMousePosition()
+function M.GetMousePosition()
 end
 
 --- 0、1、2 分别代表鼠标左、中、右键  
@@ -66,7 +68,7 @@ end
 --- 3, 4 Represents the X1, X2 mouse buttons  
 ---@param index number
 ---@return boolean
-function lstg.GetMouseState(index)
+function M.GetMouseState(index)
 end
 
 --- [LuaSTG Ex Plus 新增]  
@@ -76,12 +78,12 @@ end
 --- [LuaSTG Sub v0.15.2 Changed]  
 --- Get the mouse wheel increment
 ---@return number
-function lstg.GetMouseWheelDelta()
+function M.GetMouseWheelDelta()
 end
 
 ---@deprecated
 ---@return number
-function lstg.GetLastKey()
+function M.GetLastKey()
 end
 
 --------------------------------------------------------------------------------
@@ -89,12 +91,11 @@ end
 --- Keyboard and mouse
 
 ---@class lstg.Input
-local M = {}
-lstg.Input = M
+local Input = {}
 
----@type lstg.Input.Keyboard
-M.Keyboard = require("lstg_Input_Keyboard")
----@type lstg.Input.Mouse
-M.Mouse = require("lstg_Input_Mouse")
+Input.Keyboard = require("legacy.Input.Keyboard")
+Input.Mouse = require("legacy.Input.Mouse")
+
+M.Input = Input
 
 return M

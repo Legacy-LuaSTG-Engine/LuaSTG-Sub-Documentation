@@ -5,6 +5,8 @@
 --- 璀境石
 --------------------------------------------------------------------------------
 
+local M = {}
+
 --------------------------------------------------------------------------------
 --- 状态
 --- Status
@@ -24,24 +26,24 @@
 ---@param se_resource_name string
 ---@param volume number?
 ---@param pan number?
-function lstg.PlaySound(se_resource_name, volume, pan)
+function M.PlaySound(se_resource_name, volume, pan)
 end
 
 ---@param se_resource_name string
-function lstg.StopSound(se_resource_name)
+function M.StopSound(se_resource_name)
 end
 
 ---@param se_resource_name string
-function lstg.PauseSound(se_resource_name)
+function M.PauseSound(se_resource_name)
 end
 
 ---@param se_resource_name string
-function lstg.ResumeSound(se_resource_name)
+function M.ResumeSound(se_resource_name)
 end
 
 ---@param se_resource_name string
 ---@return lstg.AudioStatus
-function lstg.GetSoundState(se_resource_name)
+function M.GetSoundState(se_resource_name)
 end
 
 --------------------------------------------------------------------------------
@@ -59,24 +61,24 @@ end
 ---@param music_resource_name string
 ---@param volume number?
 ---@param position number?
-function lstg.PlayMusic(music_resource_name, volume, position)
+function M.PlayMusic(music_resource_name, volume, position)
 end
 
 ---@param music_resource_name string
-function lstg.StopMusic(music_resource_name)
+function M.StopMusic(music_resource_name)
 end
 
 ---@param music_resource_name string
-function lstg.PauseMusic(music_resource_name)
+function M.PauseMusic(music_resource_name)
 end
 
 ---@param music_resource_name string
-function lstg.ResumeMusic(music_resource_name)
+function M.ResumeMusic(music_resource_name)
 end
 
 ---@param music_resource_name string
 ---@return lstg.AudioStatus
-function lstg.GetMusicState(music_resource_name)
+function M.GetMusicState(music_resource_name)
 end
 
 --- 单独设置音乐音量  
@@ -84,7 +86,7 @@ end
 --- Setting the music volume individually  
 ---@param music_resource_name string
 ---@param volume number
-function lstg.SetBGMVolume(music_resource_name, volume)
+function M.SetBGMVolume(music_resource_name, volume)
 end
 
 --------------------------------------------------------------------------------
@@ -109,7 +111,7 @@ end
 --- +------+
 --- ```
 ---@param volume number
-function lstg.SetSEVolume(volume)
+function M.SetSEVolume(volume)
 end
 
 --- 设置音乐通道混音器音量  
@@ -130,5 +132,7 @@ end
 --- +---------+
 --- ```
 ---@param volume number
-function lstg.SetBGMVolume(volume)
+function M.SetBGMVolume(volume)
 end
+
+return M

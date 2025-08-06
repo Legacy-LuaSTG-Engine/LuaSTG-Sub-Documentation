@@ -279,7 +279,7 @@ local render_object = {
 	--- 读取时：获取顶点色的 lstg.Color 副本，对该副本的修改不会影响游戏对象  
 	--- 写入时：复制顶点色到游戏对象，不引用 lstg.Color 对象
 	---@type lstg.Color
-	_color = lstg.Color(255, 255, 255, 255),
+	_color = {},
 
 	--- [LuaSTG Ex Plus 新增]  
 	--- 绑定在游戏对象上的顶点色 alpha 分量  
@@ -300,5 +300,6 @@ local render_object = {
 	--- [LuaSTG Sub v0.17.0 新增]  
 	--- 【不可赋值】  
 	--- 绑定在游戏对象上的粒子系统  
-	rc = lstg.ParticleSystemData("");
+	---@type lstg.ParticleSystem
+	rc = {},
 }

@@ -4,6 +4,8 @@
 
 ---@diagnostic disable: missing-return
 
+local M = {}
+
 --------------------------------------------------------------------------------
 --- 迁移指南
 
@@ -29,7 +31,7 @@
 --- [LuaSTG Sub v0.15.6 Add]  
 --- Get the engine version numbers, representing major, minor, patch  
 ---@return number, number, number
-function lstg.GetVersionNumber()
+function M.GetVersionNumber()
 end
 
 --- [LuaSTG Sub v0.15.6 新增]  
@@ -37,7 +39,7 @@ end
 --- [LuaSTG Sub v0.15.6 Add]  
 --- Get the engine version friendly name, for example: LuaSTG Sub v0.10.0-beta  
 ---@return string
-function lstg.GetVersionName()
+function M.GetVersionName()
 end
 
 --------------------------------------------------------------------------------
@@ -47,17 +49,17 @@ end
 --- 1, 2, 3, 4, 5, 分别代表 debug, info, warning, error, fatal 共5个级别
 ---@param level number
 ---@param msg string
-function lstg.Log(level, msg)
+function M.Log(level, msg)
 end
 
 --- 输出一条信息，以 info 级别输出日志
 ---@param msg string
-function lstg.SystemLog(msg)
+function M.SystemLog(msg)
 end
 
 --- 相当于 print 到引擎日志文件，以 info 级别输出日志
 ---@vararg string
-function lstg.Print(...)
+function M.Print(...)
 end
 
 --------------------------------------------------------------------------------
@@ -67,14 +69,14 @@ end
 --- 设置游戏是否窗口化显示
 --- 默认设置为 true，即窗口化显示
 ---@param windowed boolean
-function lstg.SetWindowed(windowed)
+function M.SetWindowed(windowed)
 end
 
 --- 初始化方法，仅在 launch 文件内生效，运行时调用该方法将会触发警告消息
 --- 设置游戏是否启用垂直同步
 --- 默认设置为 true，即开启垂直同步
 ---@param Vsync boolean
-function lstg.SetVsync(Vsync)
+function M.SetVsync(Vsync)
 end
 
 --- [LuaSTG Sub v0.11.0 更改]  
@@ -83,7 +85,7 @@ end
 --- 默认设置为 640x480  
 ---@param width number
 ---@param height number
-function lstg.SetResolution(width, height)
+function M.SetResolution(width, height)
 end
 
 --- [LuaSTG Sub v0.11.0 新增]
@@ -92,7 +94,7 @@ end
 --- 初始化方法，仅在 launch 文件内生效，运行时调用该方法将会触发警告消息
 --- 设置引擎创建渲染设备时使用的显卡
 ---@param gpu string
-function lstg.SetPreferenceGPU(gpu)
+function M.SetPreferenceGPU(gpu)
 end
 
 --------------------------------------------------------------------------------
@@ -101,22 +103,22 @@ end
 --- 设置帧率限制，运行时将不会超过设置的帧率
 --- 默认设置为 60，程序会以 60FPS 的帧率运行
 ---@param FPSlimit number
-function lstg.SetFPS(FPSlimit)
+function M.SetFPS(FPSlimit)
 end
 
 --- 获取当前帧率
 ---@return number
-function lstg.GetFPS()
+function M.GetFPS()
 end
 
 --- 显示、隐藏鼠标指针
 ---@param show boolean
-function lstg.SetSplash(show)
+function M.SetSplash(show)
 end
 
 --- 更改窗口名称
 ---@param windowtitle string
-function lstg.SetTitle(windowtitle)
+function M.SetTitle(windowtitle)
 end
 
 --- lstg.EnumResolutions
@@ -134,14 +136,21 @@ end
 --- 出于兼容性考虑，目前会固定返回一组分辨率  
 ---@deprecated
 ---@return number[][]
-function lstg.EnumResolutions()
+function M.EnumResolutions()
 end
 
 --- [LuaSTG Sub v0.11.0 新增]
 --- 枚举可用的显卡，禁止在launch脚本中调用
 ---@return string[]
-function lstg.EnumGPUs()
+function M.EnumGPUs()
     return { "Intel XXXX", "NVIDIA YYYY", "AMD ZZZZ" }
+end
+
+--- [LuaSTG Sub v0.19.5 新增]
+--- 运行时切换使用的显卡  
+--- 警告：如果在游戏内设置界面提供切换显卡的功能，请务必提醒用户可能会耗费很长时间！  
+---@param gpu string
+function M.ChangeGPU(gpu)
 end
 
 --- [LuaSTG Sub 修改]  
@@ -155,7 +164,7 @@ end
 ---@param windowed boolean
 ---@param vsync boolean
 ---@return boolean
-function lstg.ChangeVideoMode(width, height, windowed, vsync)
+function M.ChangeVideoMode(width, height, windowed, vsync)
 end
 
 --------------------------------------------------------------------------------
@@ -166,7 +175,7 @@ end
 ---@param path string
 ---@param archivefile string
 ---@overload fun(scriptfilepath:string)
-function lstg.DoFile(path, archivefile)
+function M.DoFile(path, archivefile)
 end
 
 --- 从指定文件读取所有内容
@@ -175,25 +184,25 @@ end
 ---@param archivepath string
 ---@return string
 ---@overload fun(path:string)
-function lstg.LoadTextFile(path, archivepath)
+function M.LoadTextFile(path, archivepath)
 end
 
 --- 加载压缩包
 ---@param path string
 ---@param password string
 ---@overload fun(path:string)
-function lstg.LoadPack(path, password)
+function M.LoadPack(path, password)
 end
 
 --- 卸载压缩包，参数为加载该压缩包时填写的路径
 ---@param path string
-function lstg.UnloadPack(path)
+function M.UnloadPack(path)
 end
 
 ---将指定文件（可以是压缩包内的文件）复制到指定路径
 ---@param src string @源文件路径
 ---@param dest string @目标文件路径
-function lstg.ExtractRes(src, dest)
+function M.ExtractRes(src, dest)
 end
 
 --- 枚举指定目录下的文件，返回类似以下结构的table，第二项不为空时表示该文件在压缩包内
@@ -208,5 +217,7 @@ end
 ---@return table[]
 ---@overload fun(searchpath:string)
 ---@overload fun(searchpath:string, extendname:string)
-function lstg.FindFiles(searchpath, extendname, packname)
+function M.FindFiles(searchpath, extendname, packname)
 end
+
+return M

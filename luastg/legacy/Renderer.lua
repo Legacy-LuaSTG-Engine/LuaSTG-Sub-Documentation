@@ -52,17 +52,19 @@
 -- 需要注意的是 lstg.PostEffect 方法中顶点色混合会失效
 -- 这是因为顶点色混合在内置像素着色器中完成，但是屏幕后处理也通过开发者自定义的像素着色器完成
 
+local M = {}
+
 ---@alias lstg.BlendMode '""' | '"mul+alpha"' | '"mul+add"' | '"mul+rev"' | '"mul+sub"' | '"add+alpha"' | '"add+add"' | '"add+rev"' | '"add+sub"' | '"alpha+bal"' | '"mul+min"' | '"mul+max"' | '"mul+mul"' | '"mul+screen"' | '"add+min"' | '"add+max"' | '"add+mul"' | '"add+screen"' | '"one"'
 
 --------------------------------------------------------------------------------
 --- 图形功能
 
 --- 启动渲染器
-function lstg.BeginScene()
+function M.BeginScene()
 end
 
 --- 结束渲染并提交
-function lstg.EndScene()
+function M.EndScene()
 end
 
 --------------------------------------------------------------------------------
@@ -77,7 +79,7 @@ end
 ---@param far number
 ---@param color lstg.Color
 ---@overload fun()
-function lstg.SetFog(near, far, color)
+function M.SetFog(near, far, color)
 end
 
 --- 设置视口，原点位于窗口左下角，x 轴朝右 y 轴朝上
@@ -85,7 +87,7 @@ end
 ---@param right number
 ---@param bottom number
 ---@param top number
-function lstg.SetViewport(left, right, bottom, top)
+function M.SetViewport(left, right, bottom, top)
 end
 
 --- [LuaSTG Sub 新增]
@@ -94,7 +96,7 @@ end
 ---@param right number
 ---@param bottom number
 ---@param top number
-function lstg.SetScissorRect(left, right, bottom, top)
+function M.SetScissorRect(left, right, bottom, top)
 end
 
 --- 设置正交摄像机
@@ -102,7 +104,7 @@ end
 ---@param right number
 ---@param bottom number
 ---@param top number
-function lstg.SetOrtho(left, right, bottom, top)
+function M.SetOrtho(left, right, bottom, top)
 end
 
 --- 设置透视摄像机，视角为弧度制（非常需要注意）
@@ -119,12 +121,12 @@ end
 ---@param aspect number
 ---@param zn number
 ---@param zf number
-function lstg.SetPerspective(x, y, z, atx, aty, atz, upx, upy, upz, fovy, aspect, zn, zf)
+function M.SetPerspective(x, y, z, atx, aty, atz, upx, upy, upz, fovy, aspect, zn, zf)
 end
 
 --- 控制是否使用深度缓冲区，0 关闭，1 开启
 ---@param state number
-function lstg.SetZBufferEnable(state)
+function M.SetZBufferEnable(state)
 end
 
 --------------------------------------------------------------------------------
@@ -133,12 +135,12 @@ end
 --- [LuaSTG Sub 更改]
 --- 使用指定颜色清空渲染目标
 ---@param color lstg.Color
-function lstg.RenderClear(color)
+function M.RenderClear(color)
 end
 
 --- 以指定深度值清空深度缓冲区，一般填 1.0
 ---@param depth number
-function lstg.ClearZBuffer(depth)
+function M.ClearZBuffer(depth)
 end
 
 -- 关于渲染目标栈：
@@ -146,11 +148,11 @@ end
 
 --- 将一个渲染目标加入栈顶
 ---@param rtname string
-function lstg.PushRenderTarget(rtname)
+function M.PushRenderTarget(rtname)
 end
 
 --- 弹出一个渲染目标
-function lstg.PopRenderTarget()
+function M.PopRenderTarget()
 end
 
 --------------------------------------------------------------------------------
@@ -162,7 +164,7 @@ end
 ---@param right number
 ---@param bottom number
 ---@param top number
-function lstg.RenderRect(imgname, left, right, bottom, top)
+function M.RenderRect(imgname, left, right, bottom, top)
 end
 
 --- [受到 lstg.SetImageScale 影响]  
@@ -178,7 +180,7 @@ end
 ---@overload fun(imgname:string, x:number, y:number, rot:number)
 ---@overload fun(imgname:string, x:number, y:number, rot:number, scale:number)
 ---@overload fun(imgname:string, x:number, y:number, rot:number, hscale:number, vscale:number)
-function lstg.Render(imgname, x, y, rot, hscale, vscale, z)
+function M.Render(imgname, x, y, rot, hscale, vscale, z)
 end
 
 --- [LuaSTG Ex Plus 新增]
@@ -196,7 +198,7 @@ end
 ---@overload fun(aniname:string, anitimer:number, x:number, y:number, rot:number)
 ---@overload fun(aniname:string, anitimer:number, x:number, y:number, rot:number, scale:number)
 ---@overload fun(aniname:string, anitimer:number, x:number, y:number, rot:number, hscale:number, vscale:number)
-function lstg.RenderAnimation(aniname, anitimer, x, y, rot, hscale, vscale, z)
+function M.RenderAnimation(aniname, anitimer, x, y, rot, hscale, vscale, z)
 end
 
 --- 指定 4 个顶点位置绘制图片
@@ -213,7 +215,7 @@ end
 ---@param x4 number
 ---@param y4 number
 ---@param z4 number
-function lstg.Render4V(imgname, x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4)
+function M.Render4V(imgname, x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4)
 end
 
 --- 指定 4 个顶点绘制纹理  
@@ -225,7 +227,7 @@ end
 ---@param v2 { [1]: number, [2]: number, [3]: number, [4]: number, [5]: number, [6]: number | lstg.Color }
 ---@param v3 { [1]: number, [2]: number, [3]: number, [4]: number, [5]: number, [6]: number | lstg.Color }
 ---@param v4 { [1]: number, [2]: number, [3]: number, [4]: number, [5]: number, [6]: number | lstg.Color }
-function lstg.RenderTexture(texname, blendmode, v1, v2, v3, v4)
+function M.RenderTexture(texname, blendmode, v1, v2, v3, v4)
 end
 
 --------------------------------------------------------------------------------
@@ -249,7 +251,7 @@ end
 ---@param y number
 ---@param scale number
 ---@param align number
-function lstg.RenderText(fntname, text, x, y, scale, align)
+function M.RenderText(fntname, text, x, y, scale, align)
 end
 
 --- [受到 lstg.SetImageScale 影响]  
@@ -264,7 +266,7 @@ end
 ---@param align number
 ---@param color lstg.Color
 ---@param scale number
-function lstg.RenderTTF(ttfname, text, left, right, bottom, top, align, color, scale)
+function M.RenderTTF(ttfname, text, left, right, bottom, top, align, color, scale)
 end
 
 --------------------------------------------------------------------------------
@@ -291,8 +293,12 @@ end
 ---@param zscale number
 ---@overload fun(modname:string, x:number, y:number, z:number)
 ---@overload fun(modname:string, x:number, y:number, z:number, roll:number, pitch:number, yaw:number)
-function lstg.RenderModel(modname, x, y, z, roll, pitch, yaw, xscale, yscale, zscale)
+function M.RenderModel(modname, x, y, z, roll, pitch, yaw, xscale, yscale, zscale)
 end
+
+--------------------------------------------------------------------------------
+--- 调试渲染（碰撞体调试）
+--- Debug Rendering (Colider Debugging)
 
 --- [LuaSTG Sub v0.1.0 移除]  
 --- [LuaSTG Sub v0.16.1 重新添加]  
@@ -302,7 +308,7 @@ end
 --- [LuaSTG Sub v0.16.1 Re-add]  
 --- Render collision detection, turn on/off with F8  
 --- Will render 1, 2, 4, 5 total of four collision groups
-function lstg.DrawCollider()
+function M.DrawCollider()
 end
 
 --- [LuaSTG Ex Plus 新增]  
@@ -315,7 +321,7 @@ end
 --- Renders the colliders of the specified collision group with the specified color  
 ---@param group number
 ---@param color lstg.Color
-function lstg.RenderGroupCollider(group, color)
+function M.RenderGroupCollider(group, color)
 end
 
 --------------------------------------------------------------------------------
@@ -334,7 +340,7 @@ end
 ---@param blendmode lstg.BlendMode
 ---@param floatbuffer number[][]
 ---@overload fun(render_target_name:string, post_effect_name:string, blend_mode:lstg.BlendMode, param:table<string, number|string|lstg.Color>)
-function lstg.PostEffect(fxname, texname, samplerstate, blendmode, floatbuffer, texparam)
+function M.PostEffect(fxname, texname, samplerstate, blendmode, floatbuffer, texparam)
 end
 
 -- 参考 shader（boss_distortion.hlsl）
@@ -546,3 +552,5 @@ lstg.PostEffect(
 )
 
 ]]
+
+return M

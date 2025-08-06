@@ -78,17 +78,14 @@ end
 function Color:ARGB(a, r, g, b)
 end
 
---------------------------------------------------------------------------------
---- 构造函数
---- Constructor
 
----@class lstg
-lstg = lstg or {}
+
+local M = {}
 
 ---@see lstg.Color.argb
 ---@param argb number
 ---@return lstg.Color
-function lstg.Color(argb)
+function M.Color(argb)
 end
 
 ---@see lstg.Color.a
@@ -100,5 +97,7 @@ end
 ---@param g number
 ---@param b number
 ---@return lstg.Color
-function lstg.Color(a, r, g, b)
+function M.Color(a, r, g, b)
 end
+
+return M

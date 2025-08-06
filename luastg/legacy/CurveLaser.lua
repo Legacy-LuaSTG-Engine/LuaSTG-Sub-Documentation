@@ -6,13 +6,7 @@
 ---@diagnostic disable: missing-return
 
 ---@class lstg.CurveLaser
-local M = {}
-
---- 创建曲线激光对象  
---- 不要在意函数名称，这里有着很长的故事  
----@return lstg.CurveLaser
-function lstg.BentLaserData()
-end
+local CurveLaser = {}
 
 --------------------------------------------------------------------------------
 --- 更新与检测
@@ -29,7 +23,7 @@ end
 ---@param node_count number
 ---@param width number
 ---@overload fun(self:lstg.CurveLaser, unit:lstg.GameObject, node_count:number, width:number)
-function M:Update(x, y, rot, node_count, width)
+function CurveLaser:Update(x, y, rot, node_count, width)
 end
 
 --- [LuaSTG Ex Plus 新增]  
@@ -41,7 +35,7 @@ end
 ---@param x number
 ---@param y number
 ---@param width number
-function M:UpdateNode(node_index, x, y, width)
+function CurveLaser:UpdateNode(node_index, x, y, width)
 end
 
 --- [LuaSTG Sub v0.17.4 新增]  
@@ -54,12 +48,12 @@ end
 ---@param x number[]
 ---@param y number[]
 ---@param width number|number[]
-function M:UpdateAllNode(node_count, x, y, width)
+function CurveLaser:UpdateAllNode(node_count, x, y, width)
 end
 
 --- 检查曲线激光是否还有节点处于场景范围内
 ---@return boolean
-function M:BoundCheck()
+function CurveLaser:BoundCheck()
 end
 
 --- 将曲线激光与给定数据的碰撞体进行碰撞检测
@@ -70,7 +64,7 @@ end
 ---@param b number
 ---@param rect boolean
 ---@return boolean
-function M:CollisionCheck(x, y, rot, a, b, rect)
+function CurveLaser:CollisionCheck(x, y, rot, a, b, rect)
 end
 
 --- [LuaSTG Ex Plus 新增]  
@@ -85,7 +79,7 @@ end
 ---@param b number
 ---@param rect boolean
 ---@return boolean
-function M:CollisionCheckWidth(x, y, width, rot, a, b, rect)
+function CurveLaser:CollisionCheckWidth(x, y, width, rot, a, b, rect)
 end
 
 --- [LuaSTG Sub v0.20.11 新增]  
@@ -98,17 +92,17 @@ end
 ---@param rect boolean
 ---@return boolean
 ---@overload fun(self:lstg.CurveLaser, width:number, game_object:lstg.GameObject)
-function M:CollisionCheckWithWidth(width, x, y, rot, a, b, rect)
+function CurveLaser:CollisionCheckWithWidth(width, x, y, rot, a, b, rect)
 end
 
 --- [LuaSTG Ex Plus 新增]  
 --- 更改曲线激光所有节点的宽度
 ---@param width number
-function M:SetAllWidth(width)
+function CurveLaser:SetAllWidth(width)
 end
 
 --- 释放曲线激光对象，这将导致对象不再有效
-function M:Release()
+function CurveLaser:Release()
 end
 
 --------------------------------------------------------------------------------
@@ -123,7 +117,7 @@ end
 ---@param uv_width number
 ---@param uv_height number
 ---@param scale number
-function M:Render(texture, blendmode, color, uv_left, uv_top, uv_width, uv_height, scale)
+function CurveLaser:Render(texture, blendmode, color, uv_left, uv_top, uv_width, uv_height, scale)
 end
 
 --- [LuaSTG Ex Plus 新增]  
@@ -131,7 +125,7 @@ end
 --- [LuaSTG Sub v0.17.4 重新添加]  
 --- 渲染曲线激光的碰撞体（一般仅用于调试）  
 ---@param color lstg.Color
-function M:RenderCollider(color)
+function CurveLaser:RenderCollider(color)
 end
 
 --------------------------------------------------------------------------------
@@ -142,14 +136,14 @@ end
 ---对曲线激光进行等长采样，返回采样数据
 ---@param length number
 ---@return table[] @带有x、y、rot成员的table
-function M:SampleByLength(length)
+function CurveLaser:SampleByLength(length)
 	return { { x = 0, y = 0, rot = 0 }, }
 end
 
 ---对曲线激光进行等长时间采样（单位为帧），返回采样数据
 ---@param time number @整数
 ---@return table[] @带有x、y、rot成员的table
-function M:SampleByTime(time)
+function CurveLaser:SampleByTime(time)
 	return { { x = 0, y = 0, rot = 0 }, }
 end
 
@@ -159,7 +153,7 @@ end
 ---@param length number @未使用的参数，但是需要填写大于1的整数
 ---@param width number @未使用的参数
 ---@param active boolean @该节点是否是激活的
-function M:UpdateNode(unit, index, length, width, active)
+function CurveLaser:UpdateNode(unit, index, length, width, active)
 end
 
 ---根据一个对象表更新曲线激光的位置
@@ -168,7 +162,17 @@ end
 ---@param width number @宽度，不是半宽
 ---@param index number @索引初始位置
 ---@param revert boolean @反向索引
-function M:UpdatePositionByList(units, length, width, index, revert)
+function CurveLaser:UpdatePositionByList(units, length, width, index, revert)
 end
 
 --]==]
+
+local M = {}
+
+--- 创建曲线激光对象  
+--- 不要在意函数名称，这里有着很长的故事  
+---@return lstg.CurveLaser
+function M.BentLaserData()
+end
+
+return M
