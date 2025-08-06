@@ -12,12 +12,12 @@ local game_object_class = {
 
 	--- init 回调函数  
 	---@param self lstg.GameObject
-	[1] = function(self)
+	[1] = function(self, ...)
 	end,
 
 	--- del 回调函数  
 	---@param self lstg.GameObject
-	[2] = function(self)
+	[2] = function(self, ...)
 	end,
 
 	--- frame 回调函数  
@@ -39,7 +39,7 @@ local game_object_class = {
 
 	--- kill 回调函数  
 	---@param self lstg.GameObject
-	[6] = function(self)
+	[6] = function(self, ...)
 	end;
 
 	-------- 散列部分 --------
