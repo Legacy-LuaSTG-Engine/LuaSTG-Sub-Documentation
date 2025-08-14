@@ -34,8 +34,6 @@ end
 function M.loadFromFile(path, mipmap_levels)
 end
 
-M.createFromFile = M.loadFromFile
-
 ---@param image lstg.Image
 ---@return lstg.Texture2D
 function M.createFromImage(image)
