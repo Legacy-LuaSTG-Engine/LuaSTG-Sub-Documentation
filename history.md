@@ -1,5 +1,21 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.113
+    * 引擎基础
+        * 更新：更新 `luajit` 库，修复安全漏洞
+        * 更新：更新 `dear-imgui` 库到 v1.92.3
+    * 游戏对象
+        * 修复：游戏对象通过 `.render` 启用渲染对象功能后，引擎崩溃  
+        * 修复：曲线激光的 `BoundCheck` 方法的内部判断条件写反（由 v0.21.106 引入）  
+    * 音频
+        * 修改：限制输入的音量范围，不能超过 1.0，且不小于 0.0，涉及的 API：
+            * API：`lstg.PlaySound`
+            * API：`lstg.SetSEVolume`
+            * API：`lstg.PlayMusic`
+            * API：`lstg.SetBGMVolume`
+* LuaSTG Sub v0.21.112
+    * 游戏对象
+        一些内部实现的修改
 * LuaSTG Sub v0.21.111
     * 音频
         * 优化：优化 flac 解码器的代码逻辑，改善寻道缓存提升解码性能
