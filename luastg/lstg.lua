@@ -114,6 +114,8 @@ M.UnloadPack = Framework.UnloadPack
 M.ExtractRes = Framework.ExtractRes
 M.FindFiles = Framework.FindFiles
 
+M.RestartWithCommandLineArguments = Framework.RestartWithCommandLineArguments
+
 --------------------------------------------------------------------------------
 
 require("legacy.Archive")
