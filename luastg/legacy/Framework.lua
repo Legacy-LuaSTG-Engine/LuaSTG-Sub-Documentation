@@ -220,32 +220,4 @@ end
 function M.FindFiles(searchpath, extendname, packname)
 end
 
---------------------------------------------------------------------------------
---- 生命周期管理 | Lifecycle Management
-
---- [LuaSTG Sub v0.21.114 新增 | Add]  
---- 
---- 重启引擎，当前的引擎实例会退出，并启动一个新的实例  
---- Restart the engine, will terminate the current engine instance and start a new one.  
---- 
---- 示例代码 | Example  
---- ```lua
---- -- 无额外参数 | no args
---- lstg.RestartWithCommandLineArguments()
---- -- 采用相同的参数 | same args
---- lstg.RestartWithCommandLineArguments(lstg.args)
---- -- 额外的参数 | additional args
---- local args = {}
---- for _, v in ipairs(lstg.args) do
----     table.insert(args, v)
---- end
---- table.insert(args, "--hello-world")
---- lstg.RestartWithCommandLineArguments(args)
---- ```
---- 
----@param args string[]
----@overload fun()
-function M.RestartWithCommandLineArguments(args)
-end
-
 return M

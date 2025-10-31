@@ -114,8 +114,6 @@ M.UnloadPack = Framework.UnloadPack
 M.ExtractRes = Framework.ExtractRes
 M.FindFiles = Framework.FindFiles
 
-M.RestartWithCommandLineArguments = Framework.RestartWithCommandLineArguments
-
 --------------------------------------------------------------------------------
 
 require("legacy.Archive")
@@ -303,6 +301,7 @@ local Platform = require("legacy.Platform")
 
 M.Execute = Platform.Execute
 M.MessageBox = Platform.MessageBox
+M.RestartWithCommandLineArguments = Platform.RestartWithCommandLineArguments
 
 --------------------------------------------------------------------------------
 
