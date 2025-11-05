@@ -148,6 +148,8 @@ end
 
 --- 将一个渲染目标加入栈顶
 ---@param rtname string
+---@overload fun(render_target: lstg.RenderTarget)
+---@overload fun(render_target: lstg.RenderTarget, depth_stencil_buffer: lstg.DepthStencilBuffer)
 function M.PushRenderTarget(rtname)
 end
 
