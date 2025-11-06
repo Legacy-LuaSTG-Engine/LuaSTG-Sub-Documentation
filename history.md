@@ -1,5 +1,23 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.115  
+    * 图形/渲染  
+        * 修复：修复 `lstg.MeshRenderer` `draw` 后会导致后续内容无法渲染出来的问题  
+* LuaSTG Sub v0.21.114（资源对象化分支）  
+    注意：从该版本开始一些依赖外部命令行工具的插件（比如 GIF 录制插件）会失效，我们将在后续更新中提供替代方法
+    * 平台拓展
+        * 移除：默认情况下移除 `lstg.Execute`  
+        * 新增：`lstg.ShellIntegration` 类，用于安全地打开文件、文件夹、网站（链接）  
+            * 静态方法 `lstg.ShellIntegration.openFile` 拉起文件打开方式列表用于打开指定文件  
+            * 静态方法 `lstg.ShellIntegration.openDirectory` 在文件资源管理器（explorer）中打开一个文件夹  
+            * 静态方法 `lstg.ShellIntegration.openUrl` 用系统默认浏览器打开一个网站（链接）  
+    * 图形/渲染  
+        * 新增：新增 `lstg.RenderTarget` 对象，可以通过 `getTexture` 方法获取其 `lstg.Texture2D`  
+        * 新增：新增 `lstg.DepthStencilBuffer` 对象  
+        * 修改：`lstg.PushRenderTarget` 支持将 `lstg.RenderTarget` 对象作为第一个参数，以及可选的 `lstg.DepthStencilBuffer` 作为第二个参数  
+        * 修改：`lstg.PostEffect` 额外支持 `lstg.Vector2`、`lstg.Vector3`、`lstg.Vector4`
+    * Lua 虚拟机  
+        * 移除：默认情况下移除 `os.execute`、`io.popen`  
 * LuaSTG Sub v0.21.113
     * 引擎基础
         * 更新：更新 `luajit` 库，修复安全漏洞
