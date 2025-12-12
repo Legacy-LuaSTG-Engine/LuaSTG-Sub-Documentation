@@ -181,9 +181,8 @@ end
 --- 从指定文件读取所有内容
 --- 可读取任意文件，但是内容可能并非是纯文本
 ---@param path string
----@param archivepath string
+---@param archivepath string?
 ---@return string
----@overload fun(path:string)
 function M.LoadTextFile(path, archivepath)
 end
 
