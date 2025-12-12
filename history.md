@@ -1,5 +1,16 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.117（资源对象化分支）  
+    * 图形/渲染  
+        * 新增：`lstg.FontCollection` 字体库，用于加载并管理一个或多个字体  
+        * 新增：`lstg.TextLayout` 文本布局，用于文本布局、排版、光栅化  
+        * 新增：`lstg.TextRenderer` 文本布局渲染器，API 设计上类似 `lstg.SpriteRenderer`  
+        * 新增：字体和文本渲染功能配套的枚举值类：
+            - `lstg.FontWeight`  
+            - `lstg.FontStyle`  
+            - `lstg.FontWidth`  
+            - `lstg.TextAlignment`  
+            - `lstg.ParagraphAlignment`  
 * LuaSTG Sub v0.21.116  
     * 引擎基础
         * 修复：修复引擎不读取配置文件中的 `logging.consolepreserve` 配置项的问题  
