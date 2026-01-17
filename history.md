@@ -1,5 +1,25 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.120
+    * 图形/渲染
+        * 新增：交换链新增异步三重缓冲模式
+        * 修改：在开启垂直同步的情况下，如果条件允许，将通过异步三重缓冲降低延迟
+            > 异步三重缓冲的延迟介于传统垂直同步和禁用垂直同步之间，但不会造成画面撕裂。  
+            > 部分用户对画面撕裂敏感，因此选择开启垂直同步，但要忍受更高的延迟，本次修改将进一步改善这些用户的体验。  
+            > 引擎自动启用该功能的条件：
+            > 1. 系统版本至少为 Windows 10 1809 / Windows 10 LTSB 2019
+            > 2. 支持 `DXGI_FEATURE_PRESENT_ALLOW_TEARING`
+            > 3. 支持 `DirectFlip`
+            > 4. 支持 `IndependentFlip`
+            > 5. 未通过引擎配置文件或命令行选项禁用现代交换链模型（`allow_modern_swap_chain`）
+* LuaSTG Sub v0.21.119
+    * 引擎基础
+        * 新增：允许通过命令行参数修改引擎初始化配置，请参考文档[命令行参数.md](./specification/命令行参数.md)
+        * 移除：`--allow-soft-adapter` 命令行参数已废弃并移除，请改为 `--graphics_system.allow_software_device=true`
+        * 新增：现在 LuaSTG Sub 支持将日志输出到标准输出（`stdout`），以便其他软件（比如编辑器）实时展示日志。
+* LuaSTG Sub v0.21.118
+    * 引擎基础
+        * 新增：LuaSTG Sub 已实验性支持 Windows on ARM64
 * LuaSTG Sub v0.21.117（资源对象化分支）  
     * 图形/渲染  
         * 新增：`lstg.FontCollection` 字体库，用于加载并管理一个或多个字体  
