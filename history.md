@@ -1,5 +1,15 @@
 # LuaSTG Sub 更新历史记录
 
+* LuaSTG Sub v0.21.126（GPU API 分支）  
+    * 图形/渲染
+        * 移除：Windows 自带的图像编解码库 Windows Imaging Component 支持的容器格式和编码格式
+            会受到  Windows 版本、编码器/解码器拓展安装数量的影响，并导致开发者和用户的体验出现不支持或出现难以排查的问题，
+            为了避免各种外部因素干扰，从该版本开始不再通过 Windows Imaging Component 解码图像  
+        * 修改：加载图像和纹理时，使用开源第三方图像解码库 libjpeg-turbo、libpng、libwebp、libqoi、stb_image、DDSTextureLoader11 (DirectXTK)  
+        * 修改：现在加载纹理时不再自动缩放超过尺寸上限（8192x8192）的纹理，而是直接报错引起开发者注意  
+* LuaSTG Sub v0.21.125（GPU API 分支）  
+    * 引擎基础
+        * 修复：修复引擎启动后的 10 帧内统计得到的平均帧率异常的问题
 * LuaSTG Sub v0.21.124（GPU API 分支）  
     * 图形/渲染
         * 修改：重写交换链内部实现
