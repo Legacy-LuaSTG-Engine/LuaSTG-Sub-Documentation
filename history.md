@@ -2,7 +2,8 @@
 
 * LuaSTG Sub v0.21.127
     * 图形/渲染
-        * 修复：修复 `lstg.Sprite:setCenter` 与 `lstg.SetImageCenter` 行为不一致，现在 `center_x`、`center_y` 统一从 Sprite 矩形左上角开始
+        * 修复：修复 `lstg.Sprite:setCenter` 与 `lstg.SetImageCenter` 行为不一致，现在 `center_x`、`center_y` 统一从 Sprite 矩形左上角开始  
+        * 新增：补充缺失的 `lstg.Texture2D:setDefaultSampler` 方法，行为和 `lstg.SetTextureSamplerState` 一致  
 * LuaSTG Sub v0.21.126（GPU API 分支）  
     * 图形/渲染
         * 移除：Windows 自带的图像编解码库 Windows Imaging Component 支持的容器格式和编码格式

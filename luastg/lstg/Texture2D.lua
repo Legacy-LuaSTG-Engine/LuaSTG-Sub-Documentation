@@ -1,4 +1,4 @@
----@diagnostic disable: missing-return
+---@diagnostic disable: missing-return, unused-local
 
 --------------------------------------------------------------------------------
 --- 类
@@ -17,6 +17,10 @@ end
 
 ---@return integer
 function M:getHeight()
+end
+
+---@param default_sampler lstg.KnownSamplerState
+function M:setDefaultSampler(default_sampler)
 end
 
 --------------------------------------------------------------------------------
